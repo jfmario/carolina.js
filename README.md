@@ -13,6 +13,9 @@
 * Static Dir
 * Render Page
 * Form Submission
-* Item Management
-* Vue Page
 * Model API
+* Vue Page (with Vue support)
+* Item Management
+* POSS: Reveal Slideshow
+* POSS: Vis.js Model Visualizations in Admin Panel
+* POSS: Angular Support
