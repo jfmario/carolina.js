@@ -1,14 +1,14 @@
 
 title: My Carolina Site
 description: This is my website.
-databases:
+db:
   main:
     type: nedb
-    dataDir: db
+    path: db
 apps:
   - app: carolina/apps/starter
     mount: ''
 adminUser:
   username: admin
   password: {{ adminPass }}
-token: {{ token }}
+secret: {{ token }}

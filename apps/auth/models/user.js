@@ -1,10 +1,10 @@
 
-var Model = require('carolina/lib/models/model');
-var fields = require('carolina/lib/models/fields');
+var Model = require('../../../lib/models/model');
+var fields = require('../../../lib/models/fields');
 
 class User extends Model {
 
-  static getSchema() {
+  getSchema() {
     return {
       username: new fields.StringField({
         adminEdit: false,
@@ -24,7 +24,7 @@ class User extends Model {
         unique: true
       }),
       groups: new fields.ListField({
-        autoIncludes: ['all'],
+        default: ['all'],
         edit: false
       }),
       bio: new fields.StringField({
@@ -37,3 +37,5 @@ class User extends Model {
     super('User', obj);
   }
 }
+
+module.exports = User;
