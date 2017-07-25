@@ -5,10 +5,14 @@ db:
   main:
     type: nedb
     path: db
-apps:
-  - app: carolina/apps/starter
-    mount: ''
 adminUser:
   username: admin
   password: {{ adminPass }}
 secret: {{ token }}
+apps:
+  - app: carolina/apps/starter
+    mount: ''
+    db: main
+    data:
+      enterButtonText: ENTER
+      welcomeMessage: Welcome to the site.
