@@ -13,8 +13,17 @@ module.exports = function(args) {
   var configFile = nunjucks.renderString(fs.readFileSync(
     path.resolve(__dirname, '..', 'start',
     'config.yml')).toString(), {
-      adminPass: generateToken(16),
+      adminPass: generateToken(8),
+      appName: args.name,
       token: generateToken(32)
     });
   fs.writeFileSync(path.resolve(args.name, 'config.yml'), configFile);
+
+  var packageJson = nunjucks.renderString(fs.readFileSync(
+    path.resolve(__dirname, '..', 'start',
+    'package.json')).toString(), {
+      appName: args.name,
+      version: "1.0.0"
+    });
+  fs.writeFileSync(path.resolve(args.name, 'package.json'), packageJson);
 };

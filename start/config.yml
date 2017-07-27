@@ -1,5 +1,5 @@
 
-title: My Carolina Site
+title: {{ appName }}
 description: This is my website.
 db:
   main:
@@ -7,12 +7,12 @@ db:
     path: db
 adminUser:
   username: admin
-  password: {{ adminPass }}
-secret: {{ token }}
+  password: "{{ adminPass }}"
+secret: "{{ token }}"
 apps:
   - app: carolina/apps/starter
     mount: ''
     db: main
     data:
       enterButtonText: ENTER
-      welcomeMessage: Welcome to the site.
+      welcomeMessage: Welcome to {{ appName }}.
