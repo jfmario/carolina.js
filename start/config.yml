@@ -17,7 +17,13 @@ adminUser:
   password: "{{ adminPass }}"
 secret: "{{ token }}"
 apps:
-  - app: carolina/apps/starter
+  carolinaAuthenticationApp:
+    app: carolina/apps/auth
+    mount: 'auth'
+    db: main
+    data: null
+  carolinaStarterApp:
+    app: carolina/apps/starter
     mount: ''
     db: main
     data:

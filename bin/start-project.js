@@ -26,4 +26,41 @@ module.exports = function(args) {
       version: "1.0.0"
     });
   fs.writeFileSync(path.resolve(args.name, 'package.json'), packageJson);
+
+  fs.copySync(
+    path.resolve(
+      __dirname,
+      '..', 'start',
+      'config.js'
+    ),
+    path.resolve(
+      args.name,
+      'config.js'
+    )
+  );
+
+  var config = require(
+    path.join(
+      process.cwd(),
+      args.name,
+      'config'
+    )
+  );
+
+  console.log(config);
+  
+  var authApp = require('carolina/apps/auth/app');
+  authApp.load('carolinaAuthenticationApp', config);
+  authApp.prepare();
+
+  process.chdir(args.name);
+  
+  var User = require('carolina/apps/auth/models/user');
+  var adminUser = new User({
+    username: config.adminUser.username,
+    password: config.adminUser.password,
+    groups: ['all', 'admin']
+  });
+
+  adminUser.save(function(){});
 };

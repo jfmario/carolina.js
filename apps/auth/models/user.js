@@ -2,6 +2,8 @@
 var Model = require('../../../lib/models/model');
 var fields = require('../../../lib/models/fields');
 
+var app = require('../app');
+
 class User extends Model {
 
   getSchema() {
@@ -20,7 +22,7 @@ class User extends Model {
         required: true
       }),
       emailAddress: new fields.StringField({
-        required: true,
+        required: false,
         unique: true
       }),
       groups: new fields.ListField({
@@ -34,7 +36,7 @@ class User extends Model {
   }
 
   constructor(obj) {
-    super('User', obj);
+    super('User', app.name, obj);
   }
 }
 
