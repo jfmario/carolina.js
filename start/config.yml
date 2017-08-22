@@ -28,4 +28,6 @@ apps:
     db: main
     data:
       enterButtonText: ENTER
+      link: /main
+      title: "{{ appName }}"
       welcomeMessage: Welcome to {{ appName }}.

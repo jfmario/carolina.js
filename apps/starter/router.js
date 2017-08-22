@@ -2,9 +2,8 @@
 var express = require('express');
 var router = new express.Router();
 
-var app = require('./app');
-
 function main (req, res, next) {
+  var app = require('./app');
   res.send(app.data.welcomeMessage + '\n' + app.data.enterButtonText + '!');
 }
 

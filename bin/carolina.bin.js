@@ -11,15 +11,22 @@ var subs = parser.addSubparsers({
   dest: 'subcommand',
   title: 'subcommand'
 });
+
 var startProject = subs.addParser('startproject', {
   addHelp: true
 });
-
 startProject.addArgument('name', {
   action: 'store'
+});
+
+var runServer = subs.addParser('runserver', {
+  addHelp: true
 });
 
 var args = parser.parseArgs();
 if (args.subcommand=='startproject') {
   require('./start-project')(args);
+}
+if (args.subcommand == 'runserver') {
+  require('./run-server')(args);
 }
