@@ -1,4 +1,5 @@
 
+var fs = require('fs-extra');
 var path = require('path');
 var express = require('express');
 
@@ -19,11 +20,17 @@ module.exports = function(args) {
 
       app.load(prop, config);
       app.prepare();
+      if (fs.existsSync(path.resolve(app.dir, 'static/')))
+        fs.copySync(
+          path.resolve(app.dir, 'static/'),
+          path.resolve(process.cwd(), 'static', prop)
+        )
       if (app.hasOwnProperty('router') && appConfig.hasOwnProperty('mount'))
-        server.use(appConfig.mount, app.router);
+        server.use('/' + appConfig.mount, app.router);
     }
   }
 
+  server.use('/static', express.static('static'));
   server.listen(8000, function() {
     console.log("Listening...");
   });

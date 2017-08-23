@@ -17,6 +17,8 @@ adminUser:
   password: "{{ adminPass }}"
 secret: "{{ token }}"
 apps:
+  common: # Do not change this name or remove this app
+    app: carolina/apps/common_static
   carolinaAuthenticationApp:
     app: carolina/apps/auth
     mount: 'auth'
@@ -27,6 +29,7 @@ apps:
     mount: ''
     db: main
     data:
+      bootswatchTheme: minty
       enterButtonText: ENTER
       link: /main
       title: "{{ appName }}"
