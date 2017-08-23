@@ -25,12 +25,18 @@ module.exports = function(args) {
           path.resolve(app.dir, 'static/'),
           path.resolve(process.cwd(), 'static', prop)
         )
+      if (fs.existsSync(path.resolve(app.dir, 'templates/')))
+        fs.copySync(
+          path.resolve(app.dir, 'templates/'),
+          path.resolve(process.cwd(), 'templates', prop)
+        )
       if (app.hasOwnProperty('router') && appConfig.hasOwnProperty('mount'))
         server.use('/' + appConfig.mount, app.router);
     }
   }
 
   server.use('/static', express.static('static'));
+  server.set("view engine", 'pug');
   server.listen(8000, function() {
     console.log("Listening...");
   });

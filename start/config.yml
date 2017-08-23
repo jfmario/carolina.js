@@ -18,7 +18,7 @@ adminUser:
 secret: "{{ token }}"
 apps:
   common: # Do not change this name or remove this app
-    app: carolina/apps/common_static
+    app: carolina/apps/common
   carolinaAuthenticationApp:
     app: carolina/apps/auth
     mount: 'auth'
