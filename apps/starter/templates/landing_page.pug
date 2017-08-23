@@ -1,0 +1,19 @@
+extends ../common/bootstrap_boilerplate.pug
+
+block content
+  .container
+    .jumbotron
+      
+      h1.display-3= title
+      
+      p.lead= welcomeMessage
+
+      hr.my-4
+
+      p This application was created with carolina.js.
+      p.lead
+        a(
+          class="btn btn-primary btn-lg"
+          href=link
+          role='button'
+        )= enterButtonText

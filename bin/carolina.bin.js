@@ -22,8 +22,13 @@ startProject.addArgument('name', {
 var runServer = subs.addParser('runserver', {
   addHelp: true
 });
+runServer.addArgument(['-r', '--runConfig'], {
+  action: 'store',
+  defaultValue: 'default'
+});
 
 var args = parser.parseArgs();
+console.log(args);
 if (args.subcommand=='startproject') {
   require('./start-project')(args);
 }

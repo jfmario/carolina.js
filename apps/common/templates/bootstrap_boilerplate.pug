@@ -1,0 +1,23 @@
+extends ./basic_template.pug
+
+block head
+  meta(charset='utf-8')
+  meta(
+    name='viewport'
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  )
+block css
+  if locals.bootswatchTheme
+    link(
+      rel='stylesheet'
+      href='/static/common/bootswatch/' + bootswatchTheme + '/bootstrap.min.css' 
+    )
+  else
+    link(
+      rel='stylesheet'
+      href='/static/common/bootstrap/css/bootstrap.min.css' 
+    )
+block js
+  script(src='/static/common/jquery/jquery.min.js')
+  script(src='/static/common/popper.js/popper.min.js')
+  script(src='/static/common/bootstrap/js/bootstrap.min.js')

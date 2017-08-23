@@ -35,9 +35,21 @@ module.exports = function(args) {
     }
   }
 
+  if (fs.existsSync(path.resolve(process.cwd(), 'favicon.ico')))
+    fs.copySync(
+      path.resolve(process.cwd(), 'favicon.ico'),
+      path.resolve(process.cwd(), 'static', 'favicon.ico')
+    );
+
   server.use('/static', express.static('static'));
+  server.set('views', path.join(process.cwd(), 'templates'));
   server.set("view engine", 'pug');
-  server.listen(8000, function() {
-    console.log("Listening...");
-  });
+  server.listen(
+    config.runConfig[args.runConfig].port, 
+    config.runConfig[args.runConfig].host,
+    function() {
+      console.log("Listening on " + config.runConfig[args.runConfig].host +
+        ':' + config.runConfig[args.runConfig].port + '...');
+    }
+  );
 }
