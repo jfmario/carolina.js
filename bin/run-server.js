@@ -1,6 +1,8 @@
 
 var fs = require('fs-extra');
 var path = require('path');
+
+var bodyParser = require('body-parser');
 var express = require('express');
 
 module.exports = function(args) {
@@ -12,6 +14,9 @@ module.exports = function(args) {
     )
   );
   var server = express();
+
+  server.use(bodyParser.json());
+  
   for (var prop in config.apps) {
     if (config.apps.hasOwnProperty(prop)) {
 
@@ -40,7 +45,7 @@ module.exports = function(args) {
       path.resolve(process.cwd(), 'favicon.ico'),
       path.resolve(process.cwd(), 'static', 'favicon.ico')
     );
-
+  
   server.use('/static', express.static('static'));
   server.set('views', path.join(process.cwd(), 'templates'));
   server.set("view engine", 'pug');

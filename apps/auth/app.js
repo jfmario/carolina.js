@@ -1,10 +1,11 @@
 
-var ExpressApp = require('../../lib/apps/app').ExpressApp;
+var VueApp = require('../../lib/apps/app').VueApp;
 
-var data = {
-  secret: '1234567890'
-};
-var app = new ExpressApp(__dirname, data);
+var data = {};
+var app = new VueApp(__dirname, data);
 
-// app.router = require('./router');
+app.models = {
+  User: require('./models/user')
+}
+app.api = require('./api');
 module.exports = app;

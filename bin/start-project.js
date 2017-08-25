@@ -38,29 +38,4 @@ module.exports = function(args) {
       'config.js'
     )
   );
-
-  var config = require(
-    path.join(
-      process.cwd(),
-      args.name,
-      'config'
-    )
-  );
-
-  console.log(config);
-  
-  var authApp = require('carolina/apps/auth/app');
-  authApp.load('carolinaAuthenticationApp', config);
-  authApp.prepare();
-
-  process.chdir(args.name);
-  
-  var User = require('carolina/apps/auth/models/user');
-  var adminUser = new User({
-    username: config.adminUser.username,
-    password: config.adminUser.password,
-    groups: ['all', 'admin']
-  });
-
-  adminUser.save(function(){});
 };

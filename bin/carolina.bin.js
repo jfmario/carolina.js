@@ -19,6 +19,10 @@ startProject.addArgument('name', {
   action: 'store'
 });
 
+var createAdmin = subs.addParser('createadmin', {
+  addHelp: true
+});
+
 var runServer = subs.addParser('runserver', {
   addHelp: true
 });
@@ -31,6 +35,9 @@ var args = parser.parseArgs();
 console.log(args);
 if (args.subcommand=='startproject') {
   require('./start-project')(args);
+}
+else if (args.subcommand == 'createadmin') {
+  require('./create-admin')(args);
 }
 if (args.subcommand == 'runserver') {
   require('./run-server')(args);
