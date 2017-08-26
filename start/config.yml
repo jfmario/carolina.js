@@ -16,6 +16,9 @@ adminUser:
   username: admin
   password: "{{ adminPass }}"
 secret: "{{ token }}"
+emailInterface:
+  app: carolina/lib/email/terminal-email
+  from: carolina_webmaster@example.com
 apps:
   common: # Do not change this name or remove this app
     app: carolina/apps/common
@@ -23,7 +26,9 @@ apps:
     app: carolina/apps/auth
     mount: 'auth'
     db: main
-    data: null
+    data:
+      emailVerificationSubject: E-Mail Verification
+      emailVerificationText: Click the link below to confirm your e-mail address.
   carolinaStarterApp:
     app: carolina/apps/starter
     mount: ''

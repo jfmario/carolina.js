@@ -25,17 +25,34 @@ class User extends Model {
         edit: false,
         max: 32,
         min: 4,
+        name: "Username",
         required: true,
         unique: true
       }),
-      password: new fields.StringField({
+      password: new fields.HashedField({
+        adminEdit: true,
+        edit: false,
+        hidden: false,
         max: 32,
         min: 4,
+        name: "Password",
         required: true
       }),
       emailAddress: new fields.StringField({
+        name: "E-Mail Address",
         required: false,
         unique: true
+      }),
+      emailToken: new fields.StringField({
+        hidden: true
+      }),
+      emailTokenExpiration: new fields.DateField({
+        edit: false
+      }),
+      emailVerified: new fields.BooleanField({
+        default: false,
+        edit: false,
+        name: "Email Verified"
       }),
       groups: new fields.ListField({
         default: ['all'],
@@ -45,10 +62,9 @@ class User extends Model {
         textArea: true
       }),
       token: new fields.StringField({
-        edit: false,
+        hidden: true,
       }),
       tokenExpiration: new fields.DateField({
-        edit: false,
         required: false
       })
     };

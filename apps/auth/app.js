@@ -1,7 +1,10 @@
 
 var VueApp = require('../../lib/apps/app').VueApp;
 
-var data = {};
+var data = {
+  emailVerificationSubject: "Carolina Account Verification",
+  emailVerificationText: "Click on the link below to verify your e-mail."
+};
 var app = new VueApp(__dirname, data);
 
 app.models = {
