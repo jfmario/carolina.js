@@ -18,3 +18,4 @@
 * ExpressApp Scaffold
 * VueApp Scaffold
 * Proper AngularApp Scaffold
+* Implement: https://github.com/kbrsh/moon
