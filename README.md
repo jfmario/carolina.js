@@ -1,13 +1,7 @@
 
 # README #
 
-## Levels #
-
-* Sitewide
-* App
-* Page
-
-## Page Types #
+## Features #
 
 * Authentication Application
 * Admin Application
@@ -21,3 +15,6 @@
 * Implement: https://github.com/esbenp/pdf-bot (PDF Support)
 * https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript
 * Heroku Deployment
+* ExpressApp Scaffold
+* VueApp Scaffold
+* Proper AngularApp Scaffold
