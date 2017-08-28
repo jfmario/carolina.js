@@ -1,0 +1,10 @@
+extends ../common/bootstrap_vue.pug
+
+block content
+  .container
+    
+    h1 #{site.title} Authentication
+
+    #carolinaVueApp
+block append js
+  script(src='/static/carolinaAuthenticationApp/vue-app.js')

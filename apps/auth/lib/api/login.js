@@ -2,7 +2,7 @@
 var User = require('../../models/user');
 
 function login(req, res, next) {
-
+  console.log(req.body);
   if (!req.body.hasOwnProperty('username')) {
     return res.status(400).json({ error: "No username." });
   }

@@ -8,6 +8,7 @@ router.post('/register', require('./lib/api/register'));
 router.use(require('./lib/middleware/authguard'));
 router.post('/change-email', require('./lib/api/change-email'));
 router.post('/change-password', require('./lib/api/change-password'));
+router.post('/check', require('./lib/api/check'));
 router.post('/profile', require('./lib/api/profile'));
 router.post('/send-email-verification', require('./lib/api/send-email-verification'));
 // TODO: E-Mail Verification and Password Reset

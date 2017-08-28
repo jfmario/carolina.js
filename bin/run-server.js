@@ -20,10 +20,13 @@ module.exports = function(args) {
   for (var prop in config.apps) {
     if (config.apps.hasOwnProperty(prop)) {
 
+      console.log("Load phase");
       var appConfig = config.apps[prop]
       var app = require(appConfig.app + '/app');
 
       app.load(prop, config);
+
+      console.log("Prepare phase");
       app.prepare();
       if (fs.existsSync(path.resolve(app.dir, 'static/')))
         fs.copySync(
@@ -38,6 +41,8 @@ module.exports = function(args) {
       if (app.hasOwnProperty('router') && appConfig.hasOwnProperty('mount'))
         server.use('/' + appConfig.mount, app.router);
     }
+
+    app.build();
   }
 
   if (fs.existsSync(path.resolve(process.cwd(), 'favicon.ico')))
