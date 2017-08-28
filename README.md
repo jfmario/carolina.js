@@ -5,7 +5,6 @@
 
 * Authentication Application
 * Admin Application
-* Implement: https://icons8.com/c/animated-icons
 * Implement: https://varin6.github.io/Hover-Buttons/
 * Default CMS Application
 * Fixture Support
@@ -19,3 +18,4 @@
 * VueApp Scaffold
 * Proper AngularApp Scaffold
 * Implement: https://github.com/kbrsh/moon
+* Implement: https://feathericons.com/
