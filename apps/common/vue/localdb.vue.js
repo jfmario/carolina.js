@@ -5,5 +5,8 @@ var CarolinaLocalDb = {
   },
   set: function(app, key, value) {
     window.localStorage.setItem(app + '-' + key, value);
+  },
+  delete: function(app, key) {
+    window.localStorage.removeItem(app + '-' + key);
   }
 };

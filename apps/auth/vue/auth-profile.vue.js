@@ -35,6 +35,15 @@ Vue.component('carolina-auth-profile', {
     }
   },
   methods: {
+    logout: function () {
+
+      CarolinaLocalDb.delete('carolinaAuthenticationApp', 'carolinaUsername');
+      CarolinaLocalDb.delete('carolinaAuthenticationApp', 'carolinaToken');
+
+      this.errorMessage = null;
+      this.successMessage = "You have logged out."
+      this.$emit('logout');
+    },
     sendVerificationCodeLink: function () {
       var self = this;
       $.ajax({
@@ -176,6 +185,12 @@ Vue.component('carolina-auth-profile', {
             <button class="btn btn-info" type="submit">Submit</button>
           </form>
         </div>
+
+        <h3>Logout</h3>
+
+        <p>Click the button to logout.</p>
+
+        <button class="btn btn-lg btn-danger" @click="logout">Log Out</button>
       </div>
       <div v-else>
         Checking your account...

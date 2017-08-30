@@ -63,6 +63,9 @@ var app = new Vue({
       this.errorMessage = null;
       this.profileLink();
     },
+    onLogout: function() {
+      this.loginLink();
+    },
     onProfileFailure: function () {
       this.successMessage = null;
       this.errorMessage = "There was a problem logging you on. Please login again.";
@@ -120,7 +123,7 @@ var app = new Vue({
         <carolina-auth-register v-on:success="onRegisterSuccess"></carolina-auth-register>
       </div>
       <div v-if="currentStatus==status.LOGGED_IN">
-        <carolina-auth-profile v-on:failure="onProfileFailure"></carolina-auth-profile>
+        <carolina-auth-profile v-on:failure="onProfileFailure" v-on:logout="onLogout"></carolina-auth-profile>
       </div>
     </div>
   `
