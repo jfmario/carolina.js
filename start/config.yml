@@ -1,5 +1,5 @@
 
-title: {{ appName }}
+title: {{ appName }} # You can change the title to something user friendly.
 description: This is my website.
 runConfig:
   default:
@@ -29,6 +29,8 @@ apps:
     data: # You can edit the values in this section
       emailVerificationSubject: E-Mail Verification
       emailVerificationText: "Your confirmation code is:"
+      passwordResetSubject: Password Reset
+      passwordResetText: "Your new password is:"
   carolinaStarterApp: # You may remove this app and replace it with your home page
     app: carolina/apps/starter
     mount: ''

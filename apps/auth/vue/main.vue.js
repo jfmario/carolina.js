@@ -28,7 +28,8 @@ var app = new Vue({
         CHECK_FAIL: 1,
         REGISTER: 2,
         LOGIN: 3,
-        LOGGED_IN: 4
+        LOGGED_IN: 4,
+        FORGOT: 5
       },
       successMessage: null
     }
@@ -55,8 +56,16 @@ var app = new Vue({
         }
       });
     },
+    forgotPasswordLink: function () {
+      this.currentStatus = this.status.FORGOT;
+    },
     loginLink: function () {
       this.currentStatus = this.status.LOGIN;
+    },
+    onForgotPassword: function () {
+      this.successMessage = null;
+      this.errorMessage = null;
+      this.forgotPasswordLink();
     },
     onLoginSuccess: function () {
       this.successMessage = "You are now logged in.";
@@ -64,6 +73,13 @@ var app = new Vue({
       this.profileLink();
     },
     onLogout: function() {
+      this.successMessage = "You are now logged out.";
+      this.errorMessage = null;
+      this.loginLink();
+    },
+    onPasswordReset: function () {
+      this.successMessage = "Your new password has been e-mailed to you.";
+      this.errorMessage = null;
       this.loginLink();
     },
     onProfileFailure: function () {
@@ -112,7 +128,7 @@ var app = new Vue({
             Please login below or <a href="" @click.stop.prevent="registerLink">register</a>.
           </p>
         </div>
-        <carolina-auth-login v-on:success="onLoginSuccess"></carolina-auth-login>
+        <carolina-auth-login v-on:forgot="onForgotPassword" v-on:success="onLoginSuccess"></carolina-auth-login>
       </div>
       <div v-if="currentStatus==status.REGISTER">
         
@@ -124,6 +140,9 @@ var app = new Vue({
       </div>
       <div v-if="currentStatus==status.LOGGED_IN">
         <carolina-auth-profile v-on:failure="onProfileFailure" v-on:logout="onLogout"></carolina-auth-profile>
+      </div>
+      <div v-if="currentStatus==status.FORGOT">
+        <carolina-auth-forgot-password v-on:reset="onPasswordReset"></carolina-auth-forgot-password>
       </div>
     </div>
   `

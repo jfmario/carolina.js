@@ -19,3 +19,4 @@
 * Proper AngularApp Scaffold
 * Implement: https://github.com/kbrsh/moon
 * Implement: https://feathericons.com/
+* Proper E-Mail Integration

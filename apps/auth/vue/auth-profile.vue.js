@@ -30,11 +30,47 @@ Vue.component('carolina-auth-profile', {
       emailAddress: '',
       emailVerified: '',
       emailToken: '',
+      password: '',
+      newPassword1: '',
+      newPassword2: '',
+      passwordError: null,
+      passwordSuccess: null,
       sentEmail: '',
       verificationSent: false
     }
   },
   methods: {
+    changePassword: function () {
+      
+      if (this.newPassword1 != this.newPassword2) {
+        this.passwordError = "Passwords do not match.";
+        return;
+      }
+      var self = this;
+
+      $.ajax({
+        url: window.location.pathname + '/api/change-password',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+          carolinaUser: CarolinaLocalDb.get('carolinaAuthenticationApp', 'carolinaUsername'),
+          carolinaToken: CarolinaLocalDb.get('carolinaAuthenticationApp', 'carolinaToken'),
+          oldPassword: this.password,
+          newPassword: this.newPassword1
+        }),
+        success: function(data) {
+          self.password = '';
+          self.newPassword1 = '';
+          self.newPassword2 = '';
+          self.passwordError = '';
+          self.passwordSuccess = "Password successfully changed.";
+        },
+        error: function(jxhr) {
+          self.passwordSuccess = '';
+          self.passwordError = jxhr.responseJSON.error;
+        }
+      });
+    },
     logout: function () {
 
       CarolinaLocalDb.delete('carolinaAuthenticationApp', 'carolinaUsername');
@@ -185,6 +221,44 @@ Vue.component('carolina-auth-profile', {
             <button class="btn btn-info" type="submit">Submit</button>
           </form>
         </div>
+
+        <h3>Password Change</h3>
+
+        <p>
+          If you want to change your password,
+          you can do that below.
+        </p>
+
+        <div class="alert alert-danger" v-if="passwordError">
+          {{ passwordError }}
+        </div>
+        <div class="alert alert-success" v-if="passwordSuccess">
+          {{ passwordSuccess }}
+        </div>
+
+        <form class="form" @submit.prevent="changePassword">
+
+          <div class="form-group">
+
+            <label>Current Password</label>
+
+            <input class="form-control" type="password" v-model="password" />
+          </div>
+          <div class="form-group">
+
+            <label>New Password</label>
+
+            <input class="form-control" type="password" v-model="newPassword1" />
+          </div>
+          <div class="form-group">
+
+            <label>Confirm New Password</label>
+
+            <input class="form-control" type="password" v-model="newPassword2" />
+          </div>
+
+          <button class="btn btn-warning" type="submit">Change</button>
+        </form>
 
         <h3>Logout</h3>
 

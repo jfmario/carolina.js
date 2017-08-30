@@ -3,11 +3,14 @@ Vue.component('carolina-auth-login', {
   data: function () {
     return {
       error: null,
-      password: 'password',
-      username: 'username'
+      password: '',
+      username: ''
     }
   },
   methods: {
+    forgotPassword: function () {
+      this.$emit('forgot');
+    },
     login: function () {
       var self = this;
       $.ajax({
@@ -55,6 +58,11 @@ Vue.component('carolina-auth-login', {
       </div>
 
       <button class="btn btn-primary">Log In</button>
+
+      <p>
+        If you forgot your password,
+        <a href='' @click.stop.prevent="forgotPassword">click here</a>.
+      </p>
     </form>
   `
 });
