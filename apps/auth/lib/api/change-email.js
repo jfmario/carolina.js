@@ -7,6 +7,7 @@ module.exports = function(req, res, next) {
   var user = req.user;
   user.set('emailAddress', req.body.newEmailAddress);
   user.set('emailVerified', false);
+  self.set('emailToken', '');
   user.save(function(){});
   return res.status(201).json({ message: "E-mail address updated." });
 }

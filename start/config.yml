@@ -22,14 +22,14 @@ emailInterface:
 apps:
   common: # Do not change this name or remove this app
     app: carolina/apps/common
-  carolinaAuthenticationApp:
+  carolinaAuthenticationApp: # Do not remove this app, but you can change its data options
     app: carolina/apps/auth
     mount: 'auth'
     db: main
-    data:
+    data: # You can edit the values in this section
       emailVerificationSubject: E-Mail Verification
-      emailVerificationText: Click the link below to confirm your e-mail address.
-  carolinaStarterApp:
+      emailVerificationText: "Your confirmation code is:"
+  carolinaStarterApp: # You may remove this app and replace it with your home page
     app: carolina/apps/starter
     mount: ''
     db: main

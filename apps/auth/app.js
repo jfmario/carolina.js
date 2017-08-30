@@ -15,6 +15,7 @@ app.api = require('./api');
 app.vueFiles = [
   { app: 'common', file: 'localdb.vue.js' },
   { app: 'carolinaAuthenticationApp', file: 'auth-login.vue.js' },
+  { app: 'carolinaAuthenticationApp', file: 'auth-profile.vue.js' },
   { app: 'carolinaAuthenticationApp', file: 'auth-register.vue.js' },
   { app: 'carolinaAuthenticationApp', file: 'main.vue.js' }
 ]

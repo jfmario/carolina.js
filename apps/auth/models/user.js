@@ -83,6 +83,10 @@ class User extends Model {
     if (this.token == token) return true;
     else return false;
   }
+  checkEmailToken(token) {
+    if (this.emailToken == token) return true;
+    else return false;
+  }
   createToken() {
     this.token = generateToken(32);
     this.tokenExpiration = new Date();

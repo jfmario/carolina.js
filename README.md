@@ -4,10 +4,10 @@
 ## Features #
 
 * Authentication Application
+* Fixtures
 * Admin Application
 * Implement: https://varin6.github.io/Hover-Buttons/
 * Default CMS Application
-* Fixture Support
 * Implement: https://notifme.github.io/notifme-sdk/ (for notifications)
 * Implement: https://github.com/ai/nanoid (for secret generation)
 * MongoDb

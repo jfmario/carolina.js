@@ -19,7 +19,7 @@ module.exports = function(req, res, next) {
   emailInterface.sendMail({
     to: user.emailAddress,
     subject: User.app.data.emailVerificationSubject,
-    message: User.app.data.emailVerificationText + "\nhttp://" + req.headers.host + '/auth/api/verify-email/' + token
+    message: User.app.data.emailVerificationText + "\n\n" + token
   });
   res.status(201).json({ message: "Token sent." });
 }

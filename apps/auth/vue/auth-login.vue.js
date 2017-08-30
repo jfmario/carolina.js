@@ -21,9 +21,9 @@ Vue.component('carolina-auth-login', {
         success: function(data) {
 
           self.error = null;
-          carolinaLocalDb.set('carolinaAuthenticationApp', 'carolinaUsername', self.username);
+          CarolinaLocalDb.set('carolinaAuthenticationApp', 'carolinaUsername', self.username);
 
-          carolinaLocalDb.set('carolinaAuthenticationApp', 'carolinaToken', data.carolinaToken);
+          CarolinaLocalDb.set('carolinaAuthenticationApp', 'carolinaToken', data.carolinaToken);
 
           self.$emit('success');
         },
