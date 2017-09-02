@@ -16,6 +16,7 @@ module.exports = function(args) {
   var server = express();
 
   server.use(bodyParser.json());
+  server.use(require('carolina/apps/auth/lib/middleware/password-hash'));
   
   for (var prop in config.apps) {
     if (config.apps.hasOwnProperty(prop)) {

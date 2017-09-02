@@ -55,8 +55,8 @@ Vue.component('carolina-auth-profile', {
         data: JSON.stringify({
           carolinaUser: CarolinaLocalDb.get('carolinaAuthenticationApp', 'carolinaUsername'),
           carolinaToken: CarolinaLocalDb.get('carolinaAuthenticationApp', 'carolinaToken'),
-          oldPassword: this.password,
-          newPassword: this.newPassword1
+          oldPassword: sha512(this.password + carolinaData.TOKEN),
+          newPassword: sha512(this.newPassword1 + carolinaData.TOKEN)
         }),
         success: function(data) {
           self.password = '';

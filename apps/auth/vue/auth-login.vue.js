@@ -19,7 +19,7 @@ Vue.component('carolina-auth-login', {
         contentType: 'application/json',
         data: JSON.stringify({
           username: this.username,
-          password: this.password
+          password: sha512(this.password + carolinaData.TOKEN)
         }),
         success: function(data) {
 

@@ -119,7 +119,7 @@ var app = new Vue({
           v-if="currentStatus==status.CHECK_FAIL"
         >
           <b>Uh-oh!</b> Your authentication token is invalid or expired.
-          Please login below.
+          Please login below or <a href="" @click.stop.prevent="registerLink">register</a>.
         </div>
         <div
           v-if="currentStatus==status.LOGIN"

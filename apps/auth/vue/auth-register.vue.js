@@ -24,7 +24,7 @@ Vue.component('carolina-auth-register', {
         contentType: 'application/json',
         data: JSON.stringify({
           username: this.username,
-          password: this.password1,
+          password: sha512(this.password1 + carolinaData.TOKEN),
           emailAddress: this.emailAddress
         }),
         success: function(data) {
