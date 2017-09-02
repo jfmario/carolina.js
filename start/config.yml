@@ -40,6 +40,10 @@ apps:
       emailVerificationText: "Your confirmation code is:"
       passwordResetSubject: Password Reset
       passwordResetText: "Your new password is:"
+  carolinaAdminApp:
+    app: carolina/apps/admin
+    mount: 'admin'
+    db: main
   carolinaStarterApp: # You may remove this app and replace it with your home page
     app: carolina/apps/starter
     mount: ''
