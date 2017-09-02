@@ -23,6 +23,14 @@ var createAdmin = subs.addParser('createadmin', {
   addHelp: true
 });
 
+var loadData = subs.addParser('loaddata', {
+  addHelp: true
+});
+loadData.addArgument(['-d', '--dataName'], {
+  action: 'store',
+  defaultValue: 'all'
+});
+
 var runServer = subs.addParser('runserver', {
   addHelp: true
 });
@@ -39,6 +47,9 @@ if (args.subcommand=='startproject') {
 else if (args.subcommand == 'createadmin') {
   require('./create-admin')(args);
 }
-if (args.subcommand == 'runserver') {
+else if (args.subcommand == 'loaddata') {
+  require('./load-data')(args);
+}
+else if (args.subcommand == 'runserver') {
   require('./run-server')(args);
 }

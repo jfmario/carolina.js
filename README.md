@@ -3,11 +3,10 @@
 
 ## Features #
 
-* Salt/Hash Passwords
-* Fixtures
 * Admin Application
 * Implement: https://varin6.github.io/Hover-Buttons/
 * Default CMS Application
+* Document
 * Implement: https://notifme.github.io/notifme-sdk/ (for notifications)
 * Implement: https://github.com/ai/nanoid (for secret generation)
 * MongoDb

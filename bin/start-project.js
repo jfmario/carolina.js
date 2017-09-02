@@ -9,6 +9,7 @@ var generateToken = require('../lib/utils/generate-token');
 module.exports = function(args) {
 
   fs.mkdirSync(args.name);
+  fs.mkdirSync(path.join(args.name, 'fixtures'));
 
   var configFile = nunjucks.renderString(fs.readFileSync(
     path.resolve(__dirname, '..', 'start',
@@ -45,5 +46,9 @@ module.exports = function(args) {
       args.name,
       'config.js'
     )
+  );
+  fs.copySync(
+    path.resolve(__dirname, '..', 'start', 'starting_users.yml'),
+    path.join(args.name, 'fixtures', 'starting_users.yml')
   );
 };

@@ -1,0 +1,27 @@
+
+carolinaAuthenticationApp:
+  User:
+    - fields:
+        username: Applejack
+      hashFields:
+        password: orange
+    - fields:
+        username: TwilightSparkle
+      hashFields:
+        password: purple
+    - fields:
+        username: PinkiePie
+      hashFields:
+        password: pink
+    - fields:
+        username: Rarity
+      hashFields:
+        password: white
+    - fields:
+        username: RainbowDash
+      hashFields:
+        password: blue
+    - fields:
+        username: Fluttershy
+      hashFields:
+        password: yellow
