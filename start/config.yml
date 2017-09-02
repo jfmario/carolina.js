@@ -15,7 +15,16 @@ db:
 adminUser:
   username: admin
   password: "{{ adminPass }}"
-secret: "{{ token }}"
+secrets:
+  clientSideSalt: {{ salt0 }}
+  salt1: {{ salt1 }}
+  salt2: {{ salt2 }}
+  salt3: {{ salt3 }}
+  salt4: {{ salt4 }}
+  salt5: {{ salt5 }}
+  salt6: {{ salt6 }}
+  salt7: {{ salt7 }}
+  salt8: {{ salt8 }}
 emailInterface:
   app: carolina/lib/email/terminal-email
   from: carolina_webmaster@example.com

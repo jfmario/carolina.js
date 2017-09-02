@@ -3,7 +3,7 @@
 
 ## Features #
 
-* Authentication Application
+* Salt/Hash Passwords
 * Fixtures
 * Admin Application
 * Implement: https://varin6.github.io/Hover-Buttons/

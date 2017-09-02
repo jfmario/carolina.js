@@ -15,7 +15,15 @@ module.exports = function(args) {
     'config.yml')).toString(), {
       adminPass: generateToken(8),
       appName: args.name,
-      token: generateToken(32)
+      salt0: generateToken(parseInt(Math.random() * 24) + 8),
+      salt1: generateToken(parseInt(Math.random() * 24) + 8),
+      salt2: generateToken(parseInt(Math.random() * 24) + 8),
+      salt3: generateToken(parseInt(Math.random() * 24) + 8),
+      salt4: generateToken(parseInt(Math.random() * 24) + 8),
+      salt5: generateToken(parseInt(Math.random() * 24) + 8),
+      salt6: generateToken(parseInt(Math.random() * 24) + 8),
+      salt7: generateToken(parseInt(Math.random() * 24) + 8),
+      salt8: generateToken(parseInt(Math.random() * 24) + 8)
     });
   fs.writeFileSync(path.resolve(args.name, 'config.yml'), configFile);
 
