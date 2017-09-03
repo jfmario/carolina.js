@@ -1,0 +1,26 @@
+extends ./bootstrap_boilerplate.pug
+
+block prepend css
+  base(
+    href=locals.appConfig.mount
+  )
+block content
+
+  div.container
+
+    ul.nav
+      li.nav-item
+        b
+          a.nav-link= locals.site.title
+      each val in locals.site.siteMenu
+        li.nav-item
+          a.nav-link(href=val.link)= val.title
+
+    app-root
+block append js
+  script(src="/static/" + locals.app.name + "/inline.bundle.js")
+  script(src="/static/" + locals.app.name + "/polyfills.bundle.js")
+  script(src="/static/" + locals.app.name + "/styles.bundle.js")
+  script(src="/static/" + locals.app.name + "/vendor.bundle.js")
+  script(src="/static/" + locals.app.name + "/main.bundle.js")
+

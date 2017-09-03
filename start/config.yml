@@ -25,6 +25,13 @@ secrets:
   salt6: {{ salt6 }}
   salt7: {{ salt7 }}
   salt8: {{ salt8 }}
+siteMenu:
+  - link: '/main'
+    title: Home
+  - link: '/auth'
+    title: Account
+  - link: '/admin'
+    title: Admin Panel
 emailInterface:
   app: carolina/lib/email/terminal-email
   from: carolina_webmaster@example.com
