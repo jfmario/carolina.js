@@ -1,4 +1,14 @@
 
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+}
+
 var app = new Vue({
   computed: {
     pageStatus: {
@@ -68,6 +78,10 @@ var app = new Vue({
       this.forgotPasswordLink();
     },
     onLoginSuccess: function () {
+      if ($.urlParam('next')) {
+        window.location.href = $.urlParam('next');
+        return;
+      }
       this.successMessage = "You are now logged in.";
       this.errorMessage = null;
       this.profileLink();
