@@ -8,6 +8,7 @@ var router = new express.Router();
 
 var siteConfig = require(path.join(process.cwd(), 'config'))
 
+router.use('/api', require('./api/index'));
 router.get('/', function(req, res, next) {
   data = {
     app: app,

@@ -1,5 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Headers, Http } from '@angular/http';
 
 import { AdminAPIService } from './lib/admin-api.service';
 
@@ -11,10 +14,20 @@ import { AdminAPIService } from './lib/admin-api.service';
 export class AppComponent implements OnInit {
 
   title = 'app';
+  checkFail = false;
+  ready = false;
 
-  constructor(private adminCheckService: AdminCheckService ) {}
+  constructor(
+    private adminAPIService: AdminAPIService,
+    private router: Router
+  ) {}
 
-  ngOnInit() {
-    this.adminCheckService.check();
+  async ngOnInit(): Promise<void> {
+
+    let adminStatus = await this.adminAPIService.check();
+    if (adminStatus == true)
+      this.router.navigate(['/overview'])
+    else
+      this.router.navigate(['/redirect']);
   }
 }

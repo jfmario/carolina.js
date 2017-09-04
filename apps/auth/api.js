@@ -7,6 +7,7 @@ router.post('/register', require('./lib/api/register'));
 router.post('/reset-password', require('./lib/api/reset-password'));
 // following routes required login
 router.use(require('./lib/middleware/authguard'));
+router.post('/admin-check', require('./lib/api/admin-check'));
 router.post('/change-email', require('./lib/api/change-email'));
 router.post('/change-password', require('./lib/api/change-password'));
 router.post('/check', require('./lib/api/check'));

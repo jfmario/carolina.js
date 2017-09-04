@@ -78,10 +78,12 @@ var app = new Vue({
       this.forgotPasswordLink();
     },
     onLoginSuccess: function () {
+
       if ($.urlParam('next')) {
         window.location.href = $.urlParam('next');
         return;
       }
+      
       this.successMessage = "You are now logged in.";
       this.errorMessage = null;
       this.profileLink();
