@@ -1,0 +1,30 @@
+
+<div class="row">
+  <div class="col-md-3">
+    <b>{{ fieldName }}</b>
+  </div>
+  <div class="col-md-9" *ngIf="fieldData.attributes.hidden==true">
+    <span class="badge badge-warning">HIDDEN</span>
+  </div>
+  <div class="col-md-9" *ngIf="fieldData.attributes.hidden!=true">
+    <div class="form-group">
+      <div *ngIf="fieldData.type=='bool'">
+        <input class="form-control" type="checkbox" [(ngModel)]="fieldValue" [disabled]="!fieldData.attributes.adminEdit"/>
+      </div>
+      <div *ngIf="fieldData.type=='date'">
+        <input class="form-control" type="datetime-local" [ngModel]="fieldValue | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="fieldValue = $event" [disabled]="!fieldData.attributes.adminEdit"  />
+      </div>
+      <div *ngIf="fieldData.type=='string'">
+        <input class="form-control" type="text" [(ngModel)]="fieldValue" [disabled]="!fieldData.attributes.adminEdit" />
+      </div>
+      <div *ngIf="fieldData.type=='hash'">
+        WAIT
+      </div>
+      <div *ngIf="fieldData.type=='list'">
+        <input class="form-control" type="text" [(ngModel)]="fieldValue" [disabled]="!fieldData.attributes.adminEdit"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="my-4">

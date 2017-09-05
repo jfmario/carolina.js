@@ -1,0 +1,29 @@
+
+<h2>{{ appName }}</h2>
+
+<h3>{{ modelName }}</h3>
+
+<table class="table table-hover table-inverse table-sm">
+  <thead>
+    <th>Model</th>
+    <th>Key</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ modelName }}</td>
+      <td><b>{{ item }}</b></td>
+      <td><a class="btn btn-sm btn-light" [routerLink]="['/view', appName, modelName, item]">View</a></td>
+      <td><a class="btn btn-sm btn-warning" [routerLink]="['/edit', appName, modelName, item]">Edit</a></td>
+      <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="btn-group">
+  <button class="btn btn-danger" (click)="previous()" *ngIf="currentPage > 1">Previous</button>
+  <button class="btn btn-success" (click)="next()" *ngIf="items.length>0">Next</button>
+</div>
+

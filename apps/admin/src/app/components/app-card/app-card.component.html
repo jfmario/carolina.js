@@ -1,0 +1,17 @@
+
+<div class="card">
+  <div class="card-block">
+
+    <h4 class="card-title">{{ app.name }}</h4>
+
+    <h6 class="card-subtitle mb-2 text-muted" *ngIf="app.models.length==0">
+      No models.
+    </h6>
+
+    <a class="card-link"
+      *ngFor="let model of app.models"
+      [routerLink]="['/model', app.name, model]">
+      {{ model }}
+    </a>
+  </div>
+</div>

@@ -10,6 +10,7 @@
 * Implement: https://notifme.github.io/notifme-sdk/ (for notifications)
 * Implement: https://github.com/ai/nanoid (for secret generation)
 * MongoDb
+* Support for custom scripts
 * Release (stop touching master)
 * Implement: https://github.com/esbenp/pdf-bot (PDF Support)
 * https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript

@@ -1,0 +1,11 @@
+
+<h2>{{ appName }}/{{ modelName }}: {{ modelKey }}</h2>
+
+<hr class="my-4">
+
+<div *ngFor="let fieldObj of fieldObjects">
+  <admin-field-view [fieldData]="fieldObj.data" [fieldName]="fieldObj.name" [fieldValue]="fieldObj.value">
+  </admin-field-view>
+</div>
+
+<a class="btn btn-info" [routerLink]="['/edit', appName, modelName, modelKey]">Edit</a>

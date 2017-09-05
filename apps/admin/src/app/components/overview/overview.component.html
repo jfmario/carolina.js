@@ -1,6 +1,6 @@
 
 <h2>Apps</h2>
 
-<ul>
-  <li *ngFor="let app of apps">{{app}}</li>
-</ul>
+<div *ngFor="let app of apps">
+  <admin-app-card [app]="app"></admin-app-card>
+</div>

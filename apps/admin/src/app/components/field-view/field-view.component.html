@@ -1,0 +1,33 @@
+
+<div class="row">
+  <div class="col-md-3">
+    <b>{{ fieldName }}</b>
+  </div>
+  <div class="col-md-9" *ngIf="fieldData.attributes.hidden==true">
+    <span class="badge badge-warning">HIDDEN</span>
+  </div>
+  <div class="col-md-9" *ngIf="fieldData.attributes.hidden!=true">
+    <div *ngIf="fieldData.type=='bool'">
+      <span class="badge badge-success" *ngIf="fieldValue==true">TRUE</span>
+      <span class="badge badge-danger" *ngIf="fieldValue==false">FALSE</span>
+    </div>
+    <div *ngIf="fieldData.type=='date'">
+      {{ fieldValue }}
+    </div>
+    <div *ngIf="fieldData.type=='string'">
+      {{ fieldValue }}
+    </div>
+    <div *ngIf="fieldData.type=='hash'">
+      ({{ fieldValue }})
+    </div>
+    <div *ngIf="fieldData.type=='list'">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let listItem of fieldValue">
+          {{ listItem }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="my-4">
