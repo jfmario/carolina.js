@@ -9,7 +9,7 @@
   "author": "Your Name Here",
   "license": "ISC",
   "dependencies": {
-    "carolina": "{{ version }}"
+    "carolina": "git://github.com/jfmario/carolina.js.git"
   },
   "devDependencies": {
     "chai": "*",

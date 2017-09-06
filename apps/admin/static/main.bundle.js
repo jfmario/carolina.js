@@ -150,12 +150,13 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_app_card_app_card_component__ = __webpack_require__("../../../../../src/app/components/app-card/app-card.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_field_edit_field_edit_component__ = __webpack_require__("../../../../../src/app/components/field-edit/field-edit.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_field_view_field_view_component__ = __webpack_require__("../../../../../src/app/components/field-view/field-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_model_edit_model_edit_component__ = __webpack_require__("../../../../../src/app/components/model-edit/model-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_model_listing_model_listing_component__ = __webpack_require__("../../../../../src/app/components/model-listing/model-listing.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_model_view_model_view_component__ = __webpack_require__("../../../../../src/app/components/model-view/model-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_overview_overview_component__ = __webpack_require__("../../../../../src/app/components/overview/overview.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_redirect_redirect_component__ = __webpack_require__("../../../../../src/app/components/redirect/redirect.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_waiting_waiting_component__ = __webpack_require__("../../../../../src/app/components/waiting/waiting.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_model_create_model_create_component__ = __webpack_require__("../../../../../src/app/components/model-create/model-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_model_edit_model_edit_component__ = __webpack_require__("../../../../../src/app/components/model-edit/model-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_model_listing_model_listing_component__ = __webpack_require__("../../../../../src/app/components/model-listing/model-listing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_model_view_model_view_component__ = __webpack_require__("../../../../../src/app/components/model-view/model-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_overview_overview_component__ = __webpack_require__("../../../../../src/app/components/overview/overview.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_redirect_redirect_component__ = __webpack_require__("../../../../../src/app/components/redirect/redirect.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_waiting_waiting_component__ = __webpack_require__("../../../../../src/app/components/waiting/waiting.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -179,13 +180,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
-    { component: __WEBPACK_IMPORTED_MODULE_16__components_waiting_waiting_component__["a" /* WaitingComponent */], path: '' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_11__components_model_edit_model_edit_component__["a" /* ModelEditComponent */], path: 'edit/:app/:model/:key' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_12__components_model_listing_model_listing_component__["a" /* ModelListingComponent */], path: 'model/:app/:model' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_13__components_model_view_model_view_component__["a" /* ModelViewComponent */], path: 'view/:app/:model/:key' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_14__components_overview_overview_component__["a" /* OverviewComponent */], path: 'overview' },
-    { component: __WEBPACK_IMPORTED_MODULE_15__components_redirect_redirect_component__["a" /* RedirectComponent */], path: 'redirect' }
+    { component: __WEBPACK_IMPORTED_MODULE_17__components_waiting_waiting_component__["a" /* WaitingComponent */], path: '' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_11__components_model_create_model_create_component__["a" /* ModelCreateComponent */], path: 'create/:app/:model' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_12__components_model_edit_model_edit_component__["a" /* ModelEditComponent */], path: 'edit/:app/:model/:key' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_13__components_model_listing_model_listing_component__["a" /* ModelListingComponent */], path: 'model/:app/:model' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_14__components_model_view_model_view_component__["a" /* ModelViewComponent */], path: 'view/:app/:model/:key' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_15__components_overview_overview_component__["a" /* OverviewComponent */], path: 'overview' },
+    { component: __WEBPACK_IMPORTED_MODULE_16__components_redirect_redirect_component__["a" /* RedirectComponent */], path: 'redirect' }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -199,12 +202,13 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_8__components_app_card_app_card_component__["a" /* AppCardComponent */],
             __WEBPACK_IMPORTED_MODULE_9__components_field_edit_field_edit_component__["a" /* FieldEditComponent */],
             __WEBPACK_IMPORTED_MODULE_10__components_field_view_field_view_component__["a" /* FieldViewComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__components_model_edit_model_edit_component__["a" /* ModelEditComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_model_listing_model_listing_component__["a" /* ModelListingComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_model_view_model_view_component__["a" /* ModelViewComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_overview_overview_component__["a" /* OverviewComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_redirect_redirect_component__["a" /* RedirectComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__components_waiting_waiting_component__["a" /* WaitingComponent */]
+            __WEBPACK_IMPORTED_MODULE_11__components_model_create_model_create_component__["a" /* ModelCreateComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__components_model_edit_model_edit_component__["a" /* ModelEditComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_model_listing_model_listing_component__["a" /* ModelListingComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_model_view_model_view_component__["a" /* ModelViewComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_overview_overview_component__["a" /* OverviewComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_redirect_redirect_component__["a" /* RedirectComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_waiting_waiting_component__["a" /* WaitingComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -418,6 +422,161 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/model-create/model-create.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<h2>{{ appName }}/{{ modelName }}</h2>\r\n\r\n<hr class=\"my-4\">\r\n\r\n<div *ngFor=\"let fieldObj of fieldObjects; let i = index\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <b>{{ fieldObj.name }}</b>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden==true\">\r\n      <span class=\"badge badge-warning\">HIDDEN</span>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden!=true\">\r\n      <div class=\"form-group\">\r\n        <div *ngIf=\"fieldObj.data.type=='bool'\">\r\n          <input class=\"form-control\" type=\"checkbox\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='date'\">\r\n          <input class=\"form-control\" type=\"datetime-local\" [ngModel]=\"fieldObj.value | date:'yyyy-MM-ddTHH:mm'\" (ngModelChange)=\"fieldObj.value = $event\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='string'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='hash'\">\r\n          <input class=\"form-control\" type=\"password\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='list'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <hr class=\"my-4\">\r\n\r\n</div>\r\n\r\n<button class=\"btn btn-primary\" (click)=\"create()\">Submit</button>\r\n<a class=\"btn btn-secondary\" [routerLink]=\"['/view', appName, modelName]\">Cancel</a>\r\n\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/model-create/model-create.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModelCreateComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_admin_api_service__ = __webpack_require__("../../../../../src/app/lib/admin-api.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+var ModelCreateComponent = (function () {
+    function ModelCreateComponent(adminAPIService, route, router) {
+        this.adminAPIService = adminAPIService;
+        this.route = route;
+        this.router = router;
+        this.fieldObjects = [];
+    }
+    ModelCreateComponent.prototype.create = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var update, i, fieldName, schemaData, fieldValue, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        update = {};
+                        for (i = 0; i < this.fieldObjects.length; ++i) {
+                            fieldName = this.fieldObjects[i].name;
+                            schemaData = this.fieldObjects[i].data;
+                            fieldValue = this.fieldObjects[i].value;
+                            if (schemaData.type == 'date')
+                                update[fieldName] = new Date(fieldValue);
+                            else if (schemaData.type == 'hash') {
+                                if (fieldValue.length > 0)
+                                    update[fieldName] = sha512(fieldValue + $('#carolinaMetadata').attr('salt'));
+                            }
+                            else
+                                update[fieldName] = fieldValue;
+                        }
+                        console.log(update);
+                        return [4 /*yield*/, this.adminAPIService.post('/new', {
+                                appName: this.appName,
+                                modelName: this.modelName,
+                                attributes: update
+                            })];
+                    case 1:
+                        response = _a.sent();
+                        if (response.hasOwnProperty('message')) {
+                            this.router.navigate(['/model', this.appName, this.modelName]);
+                        }
+                        else if (response.hasOwnAttribute('error'))
+                            console.log(response.error);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ModelCreateComponent.prototype.ngOnInit = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, i, fieldName, fieldObj, value;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.appName = this.route.snapshot.paramMap.get('app');
+                        this.modelName = this.route.snapshot.paramMap.get('model');
+                        return [4 /*yield*/, this.adminAPIService.post('/view', {
+                                appName: this.appName,
+                                modelName: this.modelName,
+                                itemKey: ''
+                            })];
+                    case 1:
+                        response = _a.sent();
+                        for (i = 0; i < response.schema.fieldNames.length; ++i) {
+                            fieldName = response.schema.fieldNames[i];
+                            fieldObj = {};
+                            fieldObj.name = fieldName;
+                            fieldObj.data = response.schema.fieldDetails[fieldName];
+                            value = fieldObj.data.attributes.default;
+                            if (fieldObj.data.type == 'date')
+                                value = new Date(value);
+                            if (fieldObj.data.type == 'hash')
+                                value = '';
+                            fieldObj.value = value;
+                            this.fieldObjects.push(fieldObj);
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return ModelCreateComponent;
+}());
+ModelCreateComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'admin-model-create',
+        template: __webpack_require__("../../../../../src/app/components/model-create/model-create.component.html"),
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__lib_admin_api_service__["a" /* AdminAPIService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__lib_admin_api_service__["a" /* AdminAPIService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object])
+], ModelCreateComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=model-create.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/model-edit/model-edit.component.html":
 /***/ (function(module, exports) {
 
@@ -576,7 +735,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/components/model-listing/model-listing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<h2>{{ appName }}</h2>\r\n\r\n<h3>{{ modelName }}</h3>\r\n\r\n<table class=\"table table-hover table-inverse table-sm\">\r\n  <thead>\r\n    <th>Model</th>\r\n    <th>Key</th>\r\n    <th>View</th>\r\n    <th>Edit</th>\r\n    <th>Delete</th>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let item of items\">\r\n      <td>{{ modelName }}</td>\r\n      <td><b>{{ item }}</b></td>\r\n      <td><a class=\"btn btn-sm btn-light\" [routerLink]=\"['/view', appName, modelName, item]\">View</a></td>\r\n      <td><a class=\"btn btn-sm btn-warning\" [routerLink]=\"['/edit', appName, modelName, item]\">Edit</a></td>\r\n      <td><a class=\"btn btn-sm btn-danger\" href=\"#\">Delete</a></td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n\r\n<div class=\"btn-group\">\r\n  <button class=\"btn btn-danger\" (click)=\"previous()\" *ngIf=\"currentPage > 1\">Previous</button>\r\n  <button class=\"btn btn-success\" (click)=\"next()\" *ngIf=\"items.length>0\">Next</button>\r\n</div>\r\n\r\n"
+module.exports = "\r\n<h2>{{ appName }}</h2>\r\n\r\n<h3>{{ modelName }}</h3>\r\n\r\n<a class=\"btn btn-success\" [routerLink]=\"['/create', appName, modelName]\">Create New {{ modelName }}</a>\r\n\r\n<table class=\"table table-hover table-inverse table-sm\">\r\n  <thead>\r\n    <th>Model</th>\r\n    <th>Key</th>\r\n    <th>View</th>\r\n    <th>Edit</th>\r\n    <th>Delete</th>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let item of items\">\r\n      <td>{{ modelName }}</td>\r\n      <td><b>{{ item }}</b></td>\r\n      <td><a class=\"btn btn-sm btn-light\" [routerLink]=\"['/view', appName, modelName, item]\">View</a></td>\r\n      <td><a class=\"btn btn-sm btn-warning\" [routerLink]=\"['/edit', appName, modelName, item]\">Edit</a></td>\r\n      <td><a class=\"btn btn-sm btn-danger\" href=\"#\">Delete</a></td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n\r\n<div class=\"btn-group\">\r\n  <button class=\"btn btn-danger\" (click)=\"previous()\" *ngIf=\"currentPage > 1\">Previous</button>\r\n  <button class=\"btn btn-info\" (click)=\"next()\" *ngIf=\"items.length>0\">Next</button>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1124,7 +1283,8 @@ var AdminAPIService = (function () {
                         return [2 /*return*/, res.json()];
                     case 3:
                         error_2 = _a.sent();
-                        return [2 /*return*/, error_2];
+                        alert(error_2._body);
+                        return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
                 }
             });

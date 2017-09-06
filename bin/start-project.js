@@ -52,4 +52,8 @@ module.exports = function(args) {
     path.resolve(__dirname, '..', 'start', 'starting_users.yml'),
     path.join(args.name, 'fixtures', 'starting_users.yml')
   );
+  fs.copySync(
+    path.resolve(__dirname, '..', 'start', 'gitignore.txt'),
+    path.join(args.name, '.gitignore')
+  );
 };

@@ -2,6 +2,8 @@ var path = require('path');
 
 var config = require(path.join(process.cwd(), 'config'));
 
+module.paths.unshift('./my-apps');
+
 module.exports = function(req, res, next) {
 
   if (!req.body.hasOwnProperty('appName'))

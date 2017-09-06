@@ -3,6 +3,8 @@
 
 <h3>{{ modelName }}</h3>
 
+<a class="btn btn-success" [routerLink]="['/create', appName, modelName]">Create New {{ modelName }}</a>
+
 <table class="table table-hover table-inverse table-sm">
   <thead>
     <th>Model</th>
@@ -24,6 +26,6 @@
 
 <div class="btn-group">
   <button class="btn btn-danger" (click)="previous()" *ngIf="currentPage > 1">Previous</button>
-  <button class="btn btn-success" (click)="next()" *ngIf="items.length>0">Next</button>
+  <button class="btn btn-info" (click)="next()" *ngIf="items.length>0">Next</button>
 </div>
 

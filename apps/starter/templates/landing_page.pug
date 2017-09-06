@@ -2,11 +2,20 @@ extends ../common/bootstrap_boilerplate.pug
 
 block content
   .container
+  
+    ul.nav
+      li.nav-item
+        b
+          a.nav-link= locals.site.title
+      each val in locals.site.siteMenu
+        li.nav-item
+          a.nav-link(href=val.link)= val.title
+
     .jumbotron
       
-      h1.display-3= title
+      h1.display-3= app.data.title
       
-      p.lead= welcomeMessage
+      p.lead= app.data.welcomeMessage
 
       hr.my-4
 
@@ -14,6 +23,6 @@ block content
       p.lead
         a(
           class="btn btn-primary btn-lg"
-          href=link
+          href=app.data.link
           role='button'
-        )= enterButtonText
+        )= app.data.enterButtonText

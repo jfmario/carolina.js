@@ -58,7 +58,7 @@ export class AdminAPIService {
       ).toPromise();
       return res.json();
     } catch (error) {
-      return error;
+      alert(error._body);
     }
   }
 }

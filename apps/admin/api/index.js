@@ -9,6 +9,7 @@ var router = new express.Router();
 router.use(authguard);
 router.use(adminguard);
 router.post('/list', require('./list'));
+router.post('/new', require('./new'));
 router.post('/overview', require('./overview'));
 router.post('/update', require('./update'));
 router.post('/view', require('./view'));
