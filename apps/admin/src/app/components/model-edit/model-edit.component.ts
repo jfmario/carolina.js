@@ -4,6 +4,9 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { AdminAPIService } from '../../lib/admin-api.service';
 
+declare var $: any;
+declare var sha512: any;
+
 @Component({
   selector: 'admin-model-edit',
   templateUrl: './model-edit.component.html',
@@ -34,7 +37,8 @@ export class ModelEditComponent implements OnInit {
       if (schemaData.type == 'date')
         update[fieldName] = new Date(fieldValue);
       else if (schemaData.type == 'hash') {
-        // do nothing
+        if (fieldValue.length > 0)
+          update[fieldName] = sha512(fieldValue + $('#carolinaMetadata').attr('salt'));
       }
       else
         update[fieldName] = fieldValue;
@@ -77,6 +81,8 @@ export class ModelEditComponent implements OnInit {
 
       if (fieldObj.data.type == 'date')
         value = new Date(value);
+      if (fieldObj.data.type == 'hash')
+        value = '';
 
       fieldObj.value = value;
       this.fieldObjects.push(fieldObj);

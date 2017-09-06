@@ -421,7 +421,7 @@ var _a;
 /***/ "../../../../../src/app/components/model-edit/model-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<h2>{{ appName }}/{{ modelName }}: {{ modelKey }}</h2>\r\n\r\n<hr class=\"my-4\">\r\n\r\n<div *ngFor=\"let fieldObj of fieldObjects; let i = index\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <b>{{ fieldObj.name }}</b>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden==true\">\r\n      <span class=\"badge badge-warning\">HIDDEN</span>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden!=true\">\r\n      <div class=\"form-group\">\r\n        <div *ngIf=\"fieldObj.data.type=='bool'\">\r\n          <input class=\"form-control\" type=\"checkbox\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"/>\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='date'\">\r\n          <input class=\"form-control\" type=\"datetime-local\" [ngModel]=\"fieldObj.value | date:'yyyy-MM-ddTHH:mm'\" (ngModelChange)=\"fieldObj.value = $event\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"  />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='string'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='hash'\">\r\n          WAIT\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='list'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"/>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <hr class=\"my-4\">\r\n\r\n  <!--\r\n  <admin-field-edit [fieldData]=\"fieldObj.data\" [fieldName]=\"fieldObj.name\" [(fieldValue)]=\"fieldObjects[i].value\">\r\n  </admin-field-edit>\r\n  -->\r\n</div>\r\n\r\n<button class=\"btn btn-primary\" (click)=\"update()\">Submit</button>\r\n<a class=\"btn btn-secondary\" [routerLink]=\"['/view', appName, modelName, modelKey]\">Cancel</a>\r\n\r\n"
+module.exports = "\r\n<h2>{{ appName }}/{{ modelName }}: {{ modelKey }}</h2>\r\n\r\n<hr class=\"my-4\">\r\n\r\n<div *ngFor=\"let fieldObj of fieldObjects; let i = index\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <b>{{ fieldObj.name }}</b>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden==true\">\r\n      <span class=\"badge badge-warning\">HIDDEN</span>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden!=true\">\r\n      <div class=\"form-group\">\r\n        <div *ngIf=\"fieldObj.data.type=='bool'\">\r\n          <input class=\"form-control\" type=\"checkbox\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"/>\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='date'\">\r\n          <input class=\"form-control\" type=\"datetime-local\" [ngModel]=\"fieldObj.value | date:'yyyy-MM-ddTHH:mm'\" (ngModelChange)=\"fieldObj.value = $event\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"  />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='string'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='hash'\">\r\n\r\n          <p>\r\n            The original value of this field is not available to you.\r\n            Leave this field blank to leave it unchanged.\r\n          </p>\r\n\r\n          <input class=\"form-control\" type=\"password\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='list'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"/>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <hr class=\"my-4\">\r\n\r\n</div>\r\n\r\n<button class=\"btn btn-primary\" (click)=\"update()\">Submit</button>\r\n<a class=\"btn btn-secondary\" [routerLink]=\"['/view', appName, modelName, modelKey]\">Cancel</a>\r\n\r\n"
 
 /***/ }),
 
@@ -501,7 +501,8 @@ var ModelEditComponent = (function () {
                             if (schemaData.type == 'date')
                                 update[fieldName] = new Date(fieldValue);
                             else if (schemaData.type == 'hash') {
-                                // do nothing
+                                if (fieldValue.length > 0)
+                                    update[fieldName] = sha512(fieldValue + $('#carolinaMetadata').attr('salt'));
                             }
                             else
                                 update[fieldName] = fieldValue;
@@ -547,6 +548,8 @@ var ModelEditComponent = (function () {
                             value = response.data[fieldName];
                             if (fieldObj.data.type == 'date')
                                 value = new Date(value);
+                            if (fieldObj.data.type == 'hash')
+                                value = '';
                             fieldObj.value = value;
                             this.fieldObjects.push(fieldObj);
                         }

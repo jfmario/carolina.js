@@ -23,7 +23,13 @@
           <input class="form-control" type="text" [(ngModel)]="fieldObj.value" [disabled]="!fieldObj.data.attributes.adminEdit" />
         </div>
         <div *ngIf="fieldObj.data.type=='hash'">
-          <span class="badge badge-danger">EDIT NOT IMPLEMENTED</span>
+
+          <p>
+            The original value of this field is not available to you.
+            Leave this field blank to leave it unchanged.
+          </p>
+
+          <input class="form-control" type="password" [(ngModel)]="fieldObj.value" [disabled]="!fieldObj.data.attributes.adminEdit" />
         </div>
         <div *ngIf="fieldObj.data.type=='list'">
           <input class="form-control" type="text" [(ngModel)]="fieldObj.value" [disabled]="!fieldObj.data.attributes.adminEdit"/>

@@ -31,6 +31,13 @@ loadData.addArgument(['-d', '--dataName'], {
   defaultValue: 'all'
 });
 
+var newApp = subs.addParser('newapp', {
+  allHelp: true
+});
+newApp.addArgument('name', {
+  action: 'store'
+});
+
 var runServer = subs.addParser('runserver', {
   addHelp: true
 });
@@ -40,7 +47,6 @@ runServer.addArgument(['-r', '--runConfig'], {
 });
 
 var args = parser.parseArgs();
-console.log(args);
 if (args.subcommand=='startproject') {
   require('./start-project')(args);
 }
@@ -49,6 +55,9 @@ else if (args.subcommand == 'createadmin') {
 }
 else if (args.subcommand == 'loaddata') {
   require('./load-data')(args);
+}
+else if (args.subcommand == 'newapp') {
+  require('./new-app')(args);
 }
 else if (args.subcommand == 'runserver') {
   require('./run-server')(args);

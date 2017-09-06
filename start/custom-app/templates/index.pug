@@ -1,0 +1,13 @@
+extends ../common/bootstrap_boilerplate.pug
+
+block content
+  .container
+    .jumbotron
+      
+      h1.display-3= site.title
+      
+      p.lead= message
+
+      hr.my-4
+
+      p= "Your code is " + app.data.customData + "."

@@ -1,7 +1,19 @@
 extends ../common/bootstrap_vue.pug
 
 block content
-  .container
+  block content
+
+  div.container
+
+    ul.nav
+      li.nav-item
+        b
+          a.nav-link= locals.site.title
+      each val in locals.site.siteMenu
+        li.nav-item
+          a.nav-link(href=val.link)= val.title
+
+    .container
     
     h1 #{site.title} Authentication
 

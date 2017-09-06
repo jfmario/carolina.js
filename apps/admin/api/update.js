@@ -1,6 +1,18 @@
+
+var crypto = require('crypto');
 var path = require('path');
 
 var config = require(path.join(process.cwd(), 'config'));
+
+function hashOver(password) {
+
+  for (var i = 1; i <= 8; ++i) {
+    var salted = password + config.secrets['salt' + i];
+    password = crypto.createHash('sha512').update(salted).digest('hex');
+  }
+
+  return password;
+}
 
 module.exports = function(req, res, next) {
 
@@ -25,7 +37,9 @@ module.exports = function(req, res, next) {
         for (var i = 0; i < schema.fieldNames.length; ++i) {
           if (schema.fieldDetails[schema.fieldNames[i]].attributes.adminEdit == true) {
             if (req.body.update.hasOwnProperty(schema.fieldNames[i])) {
-              obj.set(schema.fieldNames[i], req.body.update[schema.fieldNames[i]]);
+              if (schema.fieldDetails[schema.fieldNames[i]].type == 'hash')
+                obj.set(schema.fieldNames[i], hashOver(req.body.update[schema.fieldNames[i]]));
+              else obj.set(schema.fieldNames[i], req.body.update[schema.fieldNames[i]]);
             }
           }
         }

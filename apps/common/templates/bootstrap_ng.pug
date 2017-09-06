@@ -18,6 +18,10 @@ block content
 
     app-root
 block append js
+
+  div#carolinaMetadata(salt=site.secrets.clientSideSalt)
+  
+  script(src='/static/common/js-sha512/sha512.min.js')
   script(src="/static/" + locals.app.name + "/inline.bundle.js")
   script(src="/static/" + locals.app.name + "/polyfills.bundle.js")
   script(src="/static/" + locals.app.name + "/styles.bundle.js")
