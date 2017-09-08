@@ -1,0 +1,9 @@
+
+<h2>Delete {{ modelName }}</h2>
+
+<p class="lead">
+  Are you sure you want to delete {{ appName }}/{{ modelName }}: {{ modelKey }}?
+</p>
+
+<button class="btn btn-danger" (click)="delete()">Delete</button>
+<a class="btn btn-secondary" [routerLink]="['/view', appName, modelName, modelKey]">Cancel</a>

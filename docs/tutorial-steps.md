@@ -31,7 +31,6 @@
 
 * `carolina newapp carolina-blog`
 * Add the following app to `config.apps`:
-* Change the starter app link back to `/main`.
 
 ```yml
   myBlog:
@@ -41,6 +40,7 @@
     data: null
 ```
 
+* Change the starter app link back to `/main`.
 * Run the site and go to `/main` to view the default new application
 * Change the entry to add a new bootswatchTheme to confirm that it responds to data
 
@@ -54,3 +54,8 @@
 ```
 
 * Change it to any bootswatch theme you like
+
+## Creating Models #
+
+* Create the folder `{project_name}/my-apps/carolina-blog/models/`.
+* In the new models folder, create the file `Post.js`.

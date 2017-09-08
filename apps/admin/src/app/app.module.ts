@@ -13,6 +13,7 @@ import { AppCardComponent } from './components/app-card/app-card.component';
 import { FieldEditComponent } from './components/field-edit/field-edit.component';
 import { FieldViewComponent } from './components/field-view/field-view.component';
 import { ModelCreateComponent } from './components/model-create/model-create.component';
+import { ModelDeleteComponent } from './components/model-delete/model-delete.component';
 import { ModelEditComponent } from './components/model-edit/model-edit.component';
 import { ModelListingComponent } from './components/model-listing/model-listing.component';
 import { ModelViewComponent } from './components/model-view/model-view.component';
@@ -23,6 +24,7 @@ import { WaitingComponent } from './components/waiting/waiting.component';
 const appRoutes: Routes = [
   { component: WaitingComponent, path: '' },
   { canActivate: [AdminGuard], component: ModelCreateComponent, path: 'create/:app/:model' },
+  { canActivate: [AdminGuard], component: ModelDeleteComponent, path: 'delete/:app/:model/:key' },
   { canActivate: [AdminGuard], component: ModelEditComponent, path: 'edit/:app/:model/:key' },
   { canActivate: [AdminGuard], component: ModelListingComponent, path: 'model/:app/:model' },
   { canActivate: [AdminGuard], component: ModelViewComponent, path: 'view/:app/:model/:key' },
@@ -37,6 +39,7 @@ const appRoutes: Routes = [
     FieldEditComponent,
     FieldViewComponent,
     ModelCreateComponent,
+    ModelDeleteComponent,
     ModelEditComponent,
     ModelListingComponent,
     ModelViewComponent,
