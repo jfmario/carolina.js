@@ -121,7 +121,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
@@ -144,20 +144,22 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_admin_api_service__ = __webpack_require__("../../../../../src/app/lib/admin-api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__ = __webpack_require__("../../../../../src/app/lib/admin-guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_app_card_app_card_component__ = __webpack_require__("../../../../../src/app/components/app-card/app-card.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_field_edit_field_edit_component__ = __webpack_require__("../../../../../src/app/components/field-edit/field-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_field_view_field_view_component__ = __webpack_require__("../../../../../src/app/components/field-view/field-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_model_create_model_create_component__ = __webpack_require__("../../../../../src/app/components/model-create/model-create.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_model_delete_model_delete_component__ = __webpack_require__("../../../../../src/app/components/model-delete/model-delete.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_model_edit_model_edit_component__ = __webpack_require__("../../../../../src/app/components/model-edit/model-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_model_listing_model_listing_component__ = __webpack_require__("../../../../../src/app/components/model-listing/model-listing.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_model_view_model_view_component__ = __webpack_require__("../../../../../src/app/components/model-view/model-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_overview_overview_component__ = __webpack_require__("../../../../../src/app/components/overview/overview.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_redirect_redirect_component__ = __webpack_require__("../../../../../src/app/components/redirect/redirect.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_waiting_waiting_component__ = __webpack_require__("../../../../../src/app/components/waiting/waiting.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_codemirror__ = __webpack_require__("../../../../ng2-codemirror/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_codemirror___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_ng2_codemirror__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_admin_api_service__ = __webpack_require__("../../../../../src/app/lib/admin-api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_admin_guard__ = __webpack_require__("../../../../../src/app/lib/admin-guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_app_card_app_card_component__ = __webpack_require__("../../../../../src/app/components/app-card/app-card.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_field_edit_field_edit_component__ = __webpack_require__("../../../../../src/app/components/field-edit/field-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_field_view_field_view_component__ = __webpack_require__("../../../../../src/app/components/field-view/field-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_model_create_model_create_component__ = __webpack_require__("../../../../../src/app/components/model-create/model-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_model_delete_model_delete_component__ = __webpack_require__("../../../../../src/app/components/model-delete/model-delete.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_model_edit_model_edit_component__ = __webpack_require__("../../../../../src/app/components/model-edit/model-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_model_listing_model_listing_component__ = __webpack_require__("../../../../../src/app/components/model-listing/model-listing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_model_view_model_view_component__ = __webpack_require__("../../../../../src/app/components/model-view/model-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_overview_overview_component__ = __webpack_require__("../../../../../src/app/components/overview/overview.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_redirect_redirect_component__ = __webpack_require__("../../../../../src/app/components/redirect/redirect.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_waiting_waiting_component__ = __webpack_require__("../../../../../src/app/components/waiting/waiting.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -183,15 +185,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
-    { component: __WEBPACK_IMPORTED_MODULE_18__components_waiting_waiting_component__["a" /* WaitingComponent */], path: '' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_11__components_model_create_model_create_component__["a" /* ModelCreateComponent */], path: 'create/:app/:model' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_12__components_model_delete_model_delete_component__["a" /* ModelDeleteComponent */], path: 'delete/:app/:model/:key' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_13__components_model_edit_model_edit_component__["a" /* ModelEditComponent */], path: 'edit/:app/:model/:key' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_14__components_model_listing_model_listing_component__["a" /* ModelListingComponent */], path: 'model/:app/:model' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_15__components_model_view_model_view_component__["a" /* ModelViewComponent */], path: 'view/:app/:model/:key' },
-    { canActivate: [__WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_16__components_overview_overview_component__["a" /* OverviewComponent */], path: 'overview' },
-    { component: __WEBPACK_IMPORTED_MODULE_17__components_redirect_redirect_component__["a" /* RedirectComponent */], path: 'redirect' }
+    { component: __WEBPACK_IMPORTED_MODULE_19__components_waiting_waiting_component__["a" /* WaitingComponent */], path: '' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_7__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_12__components_model_create_model_create_component__["a" /* ModelCreateComponent */], path: 'create/:app/:model' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_7__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_13__components_model_delete_model_delete_component__["a" /* ModelDeleteComponent */], path: 'delete/:app/:model/:key' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_7__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_14__components_model_edit_model_edit_component__["a" /* ModelEditComponent */], path: 'edit/:app/:model/:key' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_7__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_15__components_model_listing_model_listing_component__["a" /* ModelListingComponent */], path: 'model/:app/:model' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_7__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_16__components_model_view_model_view_component__["a" /* ModelViewComponent */], path: 'view/:app/:model/:key' },
+    { canActivate: [__WEBPACK_IMPORTED_MODULE_7__lib_admin_guard__["a" /* AdminGuard */]], component: __WEBPACK_IMPORTED_MODULE_17__components_overview_overview_component__["a" /* OverviewComponent */], path: 'overview' },
+    { component: __WEBPACK_IMPORTED_MODULE_18__components_redirect_redirect_component__["a" /* RedirectComponent */], path: 'redirect' }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -199,32 +202,33 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__components_app_card_app_card_component__["a" /* AppCardComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__components_field_edit_field_edit_component__["a" /* FieldEditComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__components_field_view_field_view_component__["a" /* FieldViewComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__components_model_create_model_create_component__["a" /* ModelCreateComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_model_delete_model_delete_component__["a" /* ModelDeleteComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_model_edit_model_edit_component__["a" /* ModelEditComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_model_listing_model_listing_component__["a" /* ModelListingComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_model_view_model_view_component__["a" /* ModelViewComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__components_overview_overview_component__["a" /* OverviewComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__components_redirect_redirect_component__["a" /* RedirectComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__components_waiting_waiting_component__["a" /* WaitingComponent */]
+            __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__components_app_card_app_card_component__["a" /* AppCardComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__components_field_edit_field_edit_component__["a" /* FieldEditComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__components_field_view_field_view_component__["a" /* FieldViewComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__components_model_create_model_create_component__["a" /* ModelCreateComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_model_delete_model_delete_component__["a" /* ModelDeleteComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_model_edit_model_edit_component__["a" /* ModelEditComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_model_listing_model_listing_component__["a" /* ModelListingComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_model_view_model_view_component__["a" /* ModelViewComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_overview_overview_component__["a" /* OverviewComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__components_redirect_redirect_component__["a" /* RedirectComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_waiting_waiting_component__["a" /* WaitingComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_5_ng2_codemirror__["CodemirrorModule"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { useHash: true })
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_5__lib_admin_api_service__["a" /* AdminAPIService */],
-            __WEBPACK_IMPORTED_MODULE_6__lib_admin_guard__["a" /* AdminGuard */]
+            __WEBPACK_IMPORTED_MODULE_6__lib_admin_api_service__["a" /* AdminAPIService */],
+            __WEBPACK_IMPORTED_MODULE_7__lib_admin_guard__["a" /* AdminGuard */]
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -295,11 +299,11 @@ var AppCardComponent = (function () {
     return AppCardComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__classes_app_data__["a" /* AppData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__classes_app_data__["a" /* AppData */]) === "function" && _a || Object)
 ], AppCardComponent.prototype, "app", void 0);
 AppCardComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-app-card',
         template: __webpack_require__("../../../../../src/app/components/app-card/app-card.component.html"),
     }),
@@ -338,28 +342,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var FieldEditComponent = (function () {
     function FieldEditComponent() {
-        this.fieldValueChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.fieldValueChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     return FieldEditComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__classes_field_data__["a" /* FieldData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__classes_field_data__["a" /* FieldData */]) === "function" && _a || Object)
 ], FieldEditComponent.prototype, "fieldData", void 0);
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", String)
 ], FieldEditComponent.prototype, "fieldName", void 0);
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object)
 ], FieldEditComponent.prototype, "fieldValue", void 0);
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
 ], FieldEditComponent.prototype, "fieldValueChange", void 0);
 FieldEditComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-field-edit',
         template: __webpack_require__("../../../../../src/app/components/field-edit/field-edit.component.html"),
     }),
@@ -374,7 +378,7 @@ var _a;
 /***/ "../../../../../src/app/components/field-view/field-view.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"row\">\r\n  <div class=\"col-md-3\">\r\n    <b>{{ fieldName }}</b>\r\n  </div>\r\n  <div class=\"col-md-9\" *ngIf=\"fieldData.attributes.hidden==true\">\r\n    <span class=\"badge badge-warning\">HIDDEN</span>\r\n  </div>\r\n  <div class=\"col-md-9\" *ngIf=\"fieldData.attributes.hidden!=true\">\r\n    <div *ngIf=\"fieldData.type=='bool'\">\r\n      <span class=\"badge badge-success\" *ngIf=\"fieldValue==true\">TRUE</span>\r\n      <span class=\"badge badge-danger\" *ngIf=\"fieldValue==false\">FALSE</span>\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='date'\">\r\n      {{ fieldValue }}\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='string'\">\r\n      {{ fieldValue }}\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='hash'\">\r\n      ({{ fieldValue }})\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='list'\">\r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item\" *ngFor=\"let listItem of fieldValue\">\r\n          {{ listItem }}\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<hr class=\"my-4\">\r\n"
+module.exports = "\r\n<div class=\"row\">\r\n  <div class=\"col-md-3\">\r\n    <b>{{ fieldName }}</b>\r\n  </div>\r\n  <div class=\"col-md-9\" *ngIf=\"fieldData.attributes.hidden==true\">\r\n    <span class=\"badge badge-warning\">HIDDEN</span>\r\n  </div>\r\n  <div class=\"col-md-9\" *ngIf=\"fieldData.attributes.hidden!=true\">\r\n    <div *ngIf=\"fieldData.type=='bool'\">\r\n      <span class=\"badge badge-success\" *ngIf=\"fieldValue==true\">TRUE</span>\r\n      <span class=\"badge badge-danger\" *ngIf=\"fieldValue==false\">FALSE</span>\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='date'\">\r\n      {{ fieldValue }}\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='string'\">\r\n      {{ fieldValue }}\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='hash'\">\r\n      ({{ fieldValue }})\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='list'\">\r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item\" *ngFor=\"let listItem of fieldValue\">\r\n          {{ listItem }}\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='choice'\">\r\n      {{ fieldValue }}\r\n    </div>\r\n    <div *ngIf=\"fieldData.type=='code'\">\r\n      <pre><code>\r\n{{ fieldValue }}\r\n      </code></pre>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<hr class=\"my-4\">\r\n"
 
 /***/ }),
 
@@ -402,19 +406,19 @@ var FieldViewComponent = (function () {
     return FieldViewComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__classes_field_data__["a" /* FieldData */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__classes_field_data__["a" /* FieldData */]) === "function" && _a || Object)
 ], FieldViewComponent.prototype, "fieldData", void 0);
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", String)
 ], FieldViewComponent.prototype, "fieldName", void 0);
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object)
 ], FieldViewComponent.prototype, "fieldValue", void 0);
 FieldViewComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-field-view',
         template: __webpack_require__("../../../../../src/app/components/field-view/field-view.component.html"),
     }),
@@ -429,7 +433,7 @@ var _a;
 /***/ "../../../../../src/app/components/model-create/model-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<h2>{{ appName }}/{{ modelName }}</h2>\r\n\r\n<hr class=\"my-4\">\r\n\r\n<div *ngFor=\"let fieldObj of fieldObjects; let i = index\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <b>{{ fieldObj.name }}</b>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden==true\">\r\n      <span class=\"badge badge-warning\">HIDDEN</span>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden!=true\">\r\n      <div class=\"form-group\">\r\n        <div *ngIf=\"fieldObj.data.type=='bool'\">\r\n          <input class=\"form-control\" type=\"checkbox\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='date'\">\r\n          <input class=\"form-control\" type=\"datetime-local\" [ngModel]=\"fieldObj.value | date:'yyyy-MM-ddTHH:mm'\" (ngModelChange)=\"fieldObj.value = $event\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='string'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='hash'\">\r\n          <input class=\"form-control\" type=\"password\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='list'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <hr class=\"my-4\">\r\n\r\n</div>\r\n\r\n<button class=\"btn btn-primary\" (click)=\"create()\">Submit</button>\r\n<a class=\"btn btn-secondary\" [routerLink]=\"['/view', appName, modelName]\">Cancel</a>\r\n\r\n"
+module.exports = "\r\n<h2>{{ appName }}/{{ modelName }}</h2>\r\n\r\n<hr class=\"my-4\">\r\n\r\n<div *ngFor=\"let fieldObj of fieldObjects; let i = index\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <b>{{ fieldObj.name }}</b>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden==true\">\r\n      <span class=\"badge badge-warning\">HIDDEN</span>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden!=true\">\r\n      <div class=\"form-group\">\r\n        <div *ngIf=\"fieldObj.data.type=='bool'\">\r\n          <input class=\"form-control\" type=\"checkbox\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='date'\">\r\n          <input class=\"form-control\" type=\"datetime-local\" [ngModel]=\"fieldObj.value | date:'yyyy-MM-ddTHH:mm'\" (ngModelChange)=\"fieldObj.value = $event\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='string'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='hash'\">\r\n          <input class=\"form-control\" type=\"password\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='list'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='choice'\">\r\n          <select class=\"form-control\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\">\r\n            <option *ngFor=\"let option of fieldObj.data.attributes.options\" [ngValue]=\"option[1]\">{{ option[0] }}</option>\r\n          </select>\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='code'\">\r\n          <codemirror [(ngModel)]=\"fieldObj.value\" [config]=\"{lineNumbers:true,mode:fieldObj.data.attributes.language}\"></codemirror>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <hr class=\"my-4\">\r\n\r\n</div>\r\n\r\n<button class=\"btn btn-primary\" (click)=\"create()\">Submit</button>\r\n<a class=\"btn btn-secondary\" [routerLink]=\"['/model', appName, modelName]\">Cancel</a>\r\n\r\n"
 
 /***/ }),
 
@@ -569,7 +573,7 @@ var ModelCreateComponent = (function () {
     return ModelCreateComponent;
 }());
 ModelCreateComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-model-create',
         template: __webpack_require__("../../../../../src/app/components/model-create/model-create.component.html"),
     }),
@@ -680,7 +684,7 @@ var ModelDeleteComponent = (function () {
     return ModelDeleteComponent;
 }());
 ModelDeleteComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-model-delete',
         template: __webpack_require__("../../../../../src/app/components/model-delete/model-delete.component.html"),
     }),
@@ -695,7 +699,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/components/model-edit/model-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<h2>{{ appName }}/{{ modelName }}: {{ modelKey }}</h2>\r\n\r\n<hr class=\"my-4\">\r\n\r\n<div *ngFor=\"let fieldObj of fieldObjects; let i = index\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <b>{{ fieldObj.name }}</b>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden==true\">\r\n      <span class=\"badge badge-warning\">HIDDEN</span>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden!=true\">\r\n      <div class=\"form-group\">\r\n        <div *ngIf=\"fieldObj.data.type=='bool'\">\r\n          <input class=\"form-control\" type=\"checkbox\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"/>\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='date'\">\r\n          <input class=\"form-control\" type=\"datetime-local\" [ngModel]=\"fieldObj.value | date:'yyyy-MM-ddTHH:mm'\" (ngModelChange)=\"fieldObj.value = $event\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"  />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='string'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='hash'\">\r\n\r\n          <p>\r\n            The original value of this field is not available to you.\r\n            Leave this field blank to leave it unchanged.\r\n          </p>\r\n\r\n          <input class=\"form-control\" type=\"password\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='list'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"/>\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='choice'\">\r\n          <select class=\"form-control\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\">\r\n            <option *ngFor=\"let option of fieldObj.data.attributes.options\" [ngValue]=\"option[1]\">{{ option[0] }}</option>\r\n          </select>\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='code'\">\r\n          <textarea [id]=\"'admin-'+fieldObj.name\" class=\"form-control\" [carolinaLanguage]=\"fieldObj.data.attributes.language\">\r\n            {{ fieldObj.value }}\r\n          </textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <hr class=\"my-4\">\r\n\r\n</div>\r\n\r\n<button class=\"btn btn-primary\" (click)=\"update()\">Submit</button>\r\n<a class=\"btn btn-secondary\" [routerLink]=\"['/view', appName, modelName, modelKey]\">Cancel</a>\r\n\r\n"
+module.exports = "\r\n<h2>{{ appName }}/{{ modelName }}: {{ modelKey }}</h2>\r\n\r\n<hr class=\"my-4\">\r\n\r\n<div *ngFor=\"let fieldObj of fieldObjects; let i = index\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <b>{{ fieldObj.data.attributes.name }}</b>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden==true\">\r\n      <span class=\"badge badge-warning\">HIDDEN</span>\r\n    </div>\r\n    <div class=\"col-md-9\" *ngIf=\"fieldObj.data.attributes.hidden!=true\">\r\n      <div class=\"form-group\">\r\n        <div *ngIf=\"fieldObj.data.type=='bool'\">\r\n          <input class=\"form-control\" type=\"checkbox\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"/>\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='date'\">\r\n          <input class=\"form-control\" type=\"datetime-local\" [ngModel]=\"fieldObj.value | date:'yyyy-MM-ddTHH:mm'\" (ngModelChange)=\"fieldObj.value = $event\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"  />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='string'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='hash'\">\r\n\r\n          <p>\r\n            The original value of this field is not available to you.\r\n            Leave this field blank to leave it unchanged.\r\n          </p>\r\n\r\n          <input class=\"form-control\" type=\"password\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\" />\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='list'\">\r\n          <input class=\"form-control\" type=\"text\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\"/>\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='choice'\">\r\n          <select class=\"form-control\" [(ngModel)]=\"fieldObj.value\" [disabled]=\"!fieldObj.data.attributes.adminEdit\">\r\n            <option *ngFor=\"let option of fieldObj.data.attributes.options\" [ngValue]=\"option[1]\">{{ option[0] }}</option>\r\n          </select>\r\n        </div>\r\n        <div *ngIf=\"fieldObj.data.type=='code'\">\r\n          <codemirror [(ngModel)]=\"fieldObj.value\" [config]=\"{lineNumbers:true,mode:fieldObj.data.attributes.language}\"></codemirror>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <hr class=\"my-4\">\r\n</div>\r\n\r\n<button class=\"btn btn-primary\" (click)=\"update()\">Submit</button>\r\n<a class=\"btn btn-secondary\" [routerLink]=\"['/view', appName, modelName, modelKey]\">Cancel</a>\r\n\r\n"
 
 /***/ }),
 
@@ -760,6 +764,7 @@ var ModelEditComponent = (function () {
         this.route = route;
         this.router = router;
         this.fieldObjects = [];
+        this.codeMirrors = {};
     }
     ModelEditComponent.prototype.update = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -800,7 +805,7 @@ var ModelEditComponent = (function () {
     };
     ModelEditComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var response, i, fieldName, fieldObj, value;
+            var response, codeMirrorKeys, i, fieldName, fieldObj, value, i;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -814,6 +819,7 @@ var ModelEditComponent = (function () {
                             })];
                     case 1:
                         response = _a.sent();
+                        codeMirrorKeys = [];
                         for (i = 0; i < response.schema.fieldNames.length; ++i) {
                             fieldName = response.schema.fieldNames[i];
                             fieldObj = {};
@@ -824,8 +830,13 @@ var ModelEditComponent = (function () {
                                 value = new Date(value);
                             if (fieldObj.data.type == 'hash')
                                 value = '';
+                            if (fieldObj.data.type == 'code')
+                                codeMirrorKeys.push('admin-' + fieldObj.name);
                             fieldObj.value = value;
                             this.fieldObjects.push(fieldObj);
+                        }
+                        for (i = 0; i < codeMirrorKeys.length; ++i) {
+                            this.codeMirrors[codeMirrorKeys[i]] = CodeMirror.fromTextArea(document.getElementById('#' + codeMirrorKeys[i]), { lineNumbers: true });
                         }
                         return [2 /*return*/];
                 }
@@ -835,7 +846,7 @@ var ModelEditComponent = (function () {
     return ModelEditComponent;
 }());
 ModelEditComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-model-edit',
         template: __webpack_require__("../../../../../src/app/components/model-edit/model-edit.component.html"),
     }),
@@ -864,6 +875,8 @@ module.exports = "\r\n<h2>{{ appName }}</h2>\r\n\r\n<h3>{{ modelName }}</h3>\r\n
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_admin_api_service__ = __webpack_require__("../../../../../src/app/lib/admin-api.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_codemirror_mode_markdown_markdown__ = __webpack_require__("../../../../codemirror/mode/markdown/markdown.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_codemirror_mode_markdown_markdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_codemirror_mode_markdown_markdown__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -908,6 +921,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+
 
 
 
@@ -980,7 +994,7 @@ var ModelListingComponent = (function () {
     return ModelListingComponent;
 }());
 ModelListingComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-model-listing',
         template: __webpack_require__("../../../../../src/app/components/model-listing/model-listing.component.html"),
     }),
@@ -1093,7 +1107,7 @@ var ModelViewComponent = (function () {
     return ModelViewComponent;
 }());
 ModelViewComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-model-view',
         template: __webpack_require__("../../../../../src/app/components/model-view/model-view.component.html"),
     }),
@@ -1191,7 +1205,7 @@ var OverviewComponent = (function () {
     return OverviewComponent;
 }());
 OverviewComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-overview',
         template: __webpack_require__("../../../../../src/app/components/overview/overview.component.html"),
     }),
@@ -1232,7 +1246,7 @@ var RedirectComponent = (function () {
     return RedirectComponent;
 }());
 RedirectComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-redirect',
         template: __webpack_require__("../../../../../src/app/components/redirect/redirect.component.html")
     }),
@@ -1272,7 +1286,7 @@ var WaitingComponent = (function () {
     return WaitingComponent;
 }());
 WaitingComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'admin-waiting',
         template: __webpack_require__("../../../../../src/app/components/waiting/waiting.component.html"),
     }),
@@ -1408,7 +1422,7 @@ var AdminAPIService = (function () {
     return AdminAPIService;
 }());
 AdminAPIService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], AdminAPIService);
 
@@ -1453,7 +1467,7 @@ var AdminGuard = (function () {
     return AdminGuard;
 }());
 AdminGuard = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__admin_api_service__["a" /* AdminAPIService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__admin_api_service__["a" /* AdminAPIService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], AdminGuard);
 
@@ -1494,7 +1508,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map

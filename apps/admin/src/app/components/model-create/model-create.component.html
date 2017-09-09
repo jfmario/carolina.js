@@ -28,6 +28,14 @@
         <div *ngIf="fieldObj.data.type=='list'">
           <input class="form-control" type="text" [(ngModel)]="fieldObj.value" />
         </div>
+        <div *ngIf="fieldObj.data.type=='choice'">
+          <select class="form-control" [(ngModel)]="fieldObj.value" [disabled]="!fieldObj.data.attributes.adminEdit">
+            <option *ngFor="let option of fieldObj.data.attributes.options" [ngValue]="option[1]">{{ option[0] }}</option>
+          </select>
+        </div>
+        <div *ngIf="fieldObj.data.type=='code'">
+          <codemirror [(ngModel)]="fieldObj.value" [config]="{lineNumbers:true,mode:fieldObj.data.attributes.language}"></codemirror>
+        </div>
       </div>
     </div>
   </div>
@@ -37,5 +45,5 @@
 </div>
 
 <button class="btn btn-primary" (click)="create()">Submit</button>
-<a class="btn btn-secondary" [routerLink]="['/view', appName, modelName]">Cancel</a>
+<a class="btn btn-secondary" [routerLink]="['/model', appName, modelName]">Cancel</a>
 

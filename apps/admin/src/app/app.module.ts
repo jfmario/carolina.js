@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
+import { CodemirrorModule } from 'ng2-codemirror';
+
 import { AdminAPIService } from './lib/admin-api.service';
 import { AdminGuard } from './lib/admin-guard';
 
@@ -49,6 +51,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    CodemirrorModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes, { useHash: true })

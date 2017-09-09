@@ -4,6 +4,8 @@ block prepend css
   base(
     href=locals.appConfig.mount
   )
+block append css
+  link(rel='stylesheet' href='/static/common/codemirror/lib/codemirror.css')
 block content
 
   div.container
@@ -22,6 +24,8 @@ block append js
   div#carolinaMetadata(salt=site.secrets.clientSideSalt)
   
   script(src='/static/common/js-sha512/sha512.min.js')
+  // script(src='/static/common/codemirror/lib/codemirror.js')
+  // script(src='/static/common/codemirror/mode/markdown/markdown.js')
   script(src="/static/" + locals.app.name + "/inline.bundle.js")
   script(src="/static/" + locals.app.name + "/polyfills.bundle.js")
   script(src="/static/" + locals.app.name + "/styles.bundle.js")

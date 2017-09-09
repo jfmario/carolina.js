@@ -6,7 +6,7 @@
 <div *ngFor="let fieldObj of fieldObjects; let i = index">
   <div class="row">
     <div class="col-md-3">
-      <b>{{ fieldObj.name }}</b>
+      <b>{{ fieldObj.data.attributes.name }}</b>
     </div>
     <div class="col-md-9" *ngIf="fieldObj.data.attributes.hidden==true">
       <span class="badge badge-warning">HIDDEN</span>
@@ -40,16 +40,13 @@
           </select>
         </div>
         <div *ngIf="fieldObj.data.type=='code'">
-          <textarea [id]="'admin-'+fieldObj.name" class="form-control" [carolinaLanguage]="fieldObj.data.attributes.language">
-            {{ fieldObj.value }}
-          </textarea>
+          <codemirror [(ngModel)]="fieldObj.value" [config]="{lineNumbers:true,mode:fieldObj.data.attributes.language}"></codemirror>
         </div>
       </div>
     </div>
   </div>
 
   <hr class="my-4">
-
 </div>
 
 <button class="btn btn-primary" (click)="update()">Submit</button>

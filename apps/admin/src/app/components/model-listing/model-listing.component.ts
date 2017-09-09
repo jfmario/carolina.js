@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { AdminAPIService } from '../../lib/admin-api.service';
 
 import 'rxjs/add/operator/switchMap';
+import 'codemirror/mode/markdown/markdown';
 
 @Component({
   selector: 'admin-model-listing',

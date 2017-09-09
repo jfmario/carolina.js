@@ -27,6 +27,14 @@
         </li>
       </ul>
     </div>
+    <div *ngIf="fieldData.type=='choice'">
+      {{ fieldValue }}
+    </div>
+    <div *ngIf="fieldData.type=='code'">
+      <pre><code>
+{{ fieldValue }}
+      </code></pre>
+    </div>
   </div>
 </div>
 

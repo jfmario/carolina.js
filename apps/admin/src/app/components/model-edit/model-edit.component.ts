@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { AdminAPIService } from '../../lib/admin-api.service';
 
 declare var $: any;
+declare var CodeMirror: any;
 declare var sha512: any;
 
 @Component({
@@ -17,6 +18,7 @@ export class ModelEditComponent implements OnInit {
   private modelName: string;
   private modelKey: string;
   private fieldObjects: any[] = [];
+  private codeMirrors: any = {};
 
   constructor(
     private adminAPIService: AdminAPIService,
@@ -69,6 +71,7 @@ export class ModelEditComponent implements OnInit {
       itemKey: this.modelKey
     });
 
+    var codeMirrorKeys = [];
     for (var i = 0; i < response.schema.fieldNames.length; ++i) {
 
       var fieldName = response.schema.fieldNames[i];
@@ -83,10 +86,11 @@ export class ModelEditComponent implements OnInit {
         value = new Date(value);
       if (fieldObj.data.type == 'hash')
         value = '';
+      if (fieldObj.data.type =='code')
+        codeMirrorKeys.push('admin-' + fieldObj.name);
 
       fieldObj.value = value;
       this.fieldObjects.push(fieldObj);
     }
-    // console.log(this.fieldObjects);
   }
 }
