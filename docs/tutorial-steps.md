@@ -129,7 +129,6 @@ module.exports = Post;
 * Create this fixture `fixtures/posts.yml`:
 
 ```yml
-
 myBlog:
   Post:
     - fields:
@@ -137,6 +136,14 @@ myBlog:
         title: My First Blog Post
         slug: my-first-blog-post
         status: published
-    - fileFields:
+      fileFields:
         markdownText: posts/my-first-blog-post.md
 ```
+
+* Create this file `fixtures/files/posts/my-first-blog-post.md`:
+
+```
+Hello! This is my **very first** blog post.
+```
+
+* Run `carolina loaddata -d posts` and inspect the database.
