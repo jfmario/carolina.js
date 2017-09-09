@@ -16,6 +16,7 @@
     "body-parser": "^1.17.2",
     "bootstrap": "^4.0.0-alpha.6",
     "bootswatch": "^4.0.0-alpha.6",
+    "codemirror": "^5.29.0",
     "express": "^4.15.4",
     "fs-extra": "^3.0.1",
     "fse": "^3.0.0",

@@ -58,4 +58,85 @@
 ## Creating Models #
 
 * Create the folder `{project_name}/my-apps/carolina-blog/models/`.
-* In the new models folder, create the file `Post.js`.
+* In the new models folder, create the file `post.js`.
+
+```js
+var Model = require('carolina/lib/models/model');
+var fields = require('carolina/lib/models/fields');
+
+class Post extends Model {
+
+  // return a metadata object for the model
+  static getMetadata() {
+    return {
+      indexField: 'slug',
+      model: "Post"
+    }
+  }
+  // return the schema object for the model
+  static getSchema() {
+    return {
+      author: new fields.StringField({
+        default: 'admin',
+        name: "Author"
+      }),
+      title: new fields.StringField({
+        default: "New Post",
+        name: "Title"
+      }),
+      slug: new fields.StringField({
+        name: "Slug"
+      }),
+      categories: new fields.ListField({
+        default: ['uncategorized'],
+        name: "Categories"
+      }),
+      tags: new fields.ListField({
+        default: [],
+        name: "Tags"
+      }),
+      publishDate: new fields.DateField({
+        name: "Publication Date"
+      }),
+      status: new fields.ChoiceField({
+        default: 'draft',
+        name: "Status",
+        options: [
+          ["Draft", 'draft'],
+          ['Published', 'published'],
+          ['Archived', 'archived']
+        ]
+      }),
+      markdownText: new fields.CodeField({
+        default: "This is my *new post*.",
+        language: 'markdown',
+        name: "Markdown Text"
+      })
+    }
+  }
+
+  constructor(obj) {
+    // must call super like this
+    super("Post", obj);
+  }
+
+  // methods for instances will go here later
+}
+
+module.exports = Post;
+```
+
+* Create this fixture `fixtures/posts.yml`:
+
+```yml
+
+myBlog:
+  Post:
+    - fields:
+        author: admin
+        title: My First Blog Post
+        slug: my-first-blog-post
+        status: published
+    - fileFields:
+        markdownText: posts/my-first-blog-post.md
+```

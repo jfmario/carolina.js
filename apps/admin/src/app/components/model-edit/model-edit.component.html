@@ -34,6 +34,16 @@
         <div *ngIf="fieldObj.data.type=='list'">
           <input class="form-control" type="text" [(ngModel)]="fieldObj.value" [disabled]="!fieldObj.data.attributes.adminEdit"/>
         </div>
+        <div *ngIf="fieldObj.data.type=='choice'">
+          <select class="form-control" [(ngModel)]="fieldObj.value" [disabled]="!fieldObj.data.attributes.adminEdit">
+            <option *ngFor="let option of fieldObj.data.attributes.options" [ngValue]="option[1]">{{ option[0] }}</option>
+          </select>
+        </div>
+        <div *ngIf="fieldObj.data.type=='code'">
+          <textarea [id]="'admin-'+fieldObj.name" class="form-control" [carolinaLanguage]="fieldObj.data.attributes.language">
+            {{ fieldObj.value }}
+          </textarea>
+        </div>
       </div>
     </div>
   </div>

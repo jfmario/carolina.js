@@ -7,6 +7,8 @@ var yaml = require('yamljs');
 
 var config = require(path.resolve(process.cwd(), 'config'));
 
+module.paths.unshift('./my-apps');
+
 function hashValue(passwordValue) {
 
   var password = crypto.createHash('sha512').update(

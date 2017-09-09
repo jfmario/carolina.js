@@ -19,7 +19,7 @@
       <td><b>{{ item }}</b></td>
       <td><a class="btn btn-sm btn-light" [routerLink]="['/view', appName, modelName, item]">View</a></td>
       <td><a class="btn btn-sm btn-warning" [routerLink]="['/edit', appName, modelName, item]">Edit</a></td>
-      <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+      <td><a class="btn btn-sm btn-danger" [routerLink]="['/delete', appName, modelName, item]>Delete</a></td>
     </tr>
   </tbody>
 </table>
