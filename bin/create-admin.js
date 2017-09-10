@@ -11,6 +11,8 @@ var generateToken = require('../lib/utils/generate-token');
 
 var config = require(path.resolve(process.cwd(), 'config'));
 
+module.paths.unshift('./node_modules');
+
 module.exports = function(args) {
 
   for (var prop in config.apps) {

@@ -19,6 +19,19 @@ startProject.addArgument('name', {
   action: 'store'
 });
 
+var clearData = subs.addParser('cleardata', {
+  addHelp: true
+});
+clearData.addArgument('database', {
+  action: 'store',
+});
+clearData.addArgument('app', {
+  action: 'store',
+});
+clearData.addArgument('model', {
+  action: 'store',
+});
+
 var createAdmin = subs.addParser('createadmin', {
   addHelp: true
 });
@@ -49,6 +62,9 @@ runServer.addArgument(['-r', '--runConfig'], {
 var args = parser.parseArgs();
 if (args.subcommand=='startproject') {
   require('./start-project')(args);
+}
+else if (args.subcommand == 'cleardata') {
+  require('./clear-data')(args);
 }
 else if (args.subcommand == 'createadmin') {
   require('./create-admin')(args);

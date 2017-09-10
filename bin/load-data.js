@@ -8,6 +8,7 @@ var yaml = require('yamljs');
 var config = require(path.resolve(process.cwd(), 'config'));
 
 module.paths.unshift('./my-apps');
+module.paths.unshift('./node_modules');
 
 function hashValue(passwordValue) {
 

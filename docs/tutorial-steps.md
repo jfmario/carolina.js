@@ -164,7 +164,21 @@ Hello! This is my **very first** blog post.
 * Write `api/get-post.js`.
 
 ```js
-// put it here
+var Post = require('../models/post');
+
+async function getPost(req, res, next) {
+
+  if (!req.body.hasOwnProperty('slug'))
+    return res.status(400).send("No post slug provided.");
+  
+  try {
+    let post = await Post.lookup(req.body.slug);
+    res.json(post.exportData());
+  } catch(err) { 
+    console.log(err);
+  }
+};
+module.exports = getPost;
 ```
 
 * Change `api/get-post.js` to use the new endpoing for POST requests to /post.
@@ -174,3 +188,179 @@ Hello! This is my **very first** blog post.
 // register API endpoints
 router.post('/get-post', require('./get-post'));
 ```
+
+* Send a post request and check the response (sample in python)
+
+```py
+import requests
+res = requests.post('http://localhost:8000/main/api/get-post', json={
+  'slug': 'my-first-blog-post'
+})
+print(res.json())
+```
+
+## Adding More Models #
+
+* Lets clear out the Posts database, and start it over.
+* Run `carolina cleardata main myBlog Post`.
+* Add another entries to `fixtures/posts.yml`
+
+```yml
+myBlog:
+  Post:
+    - fields:
+        author: admin
+        title: My First Blog Post
+        slug: my-first-blog-post
+        status: published
+      fileFields:
+        markdownText: posts/my-first-blog-post.md
+    - fields:
+        author: admin
+        title: Snippet Post
+        slug: snippet-post
+        status: published
+        publishDate: 2017-09-10T15:17:00Z
+      fileFields:
+        markdownText: posts/snippet-post.md
+```
+
+* Load the data: `carolina loaddata -d posts`.
+* In `my-apps/carolina-blog/api/get-post.js`, change try/catch block:
+
+```js
+  try {
+    
+    let post = await Post.lookup(req.body.slug);
+    var postData = post.exportData();
+    postData.htmlText = post.getHTML();
+    postData.snippet = post.getSnippetHTML();
+    
+    return res.json(postData);
+  } catch(err) { 
+    console.log(err);
+  }
+```
+
+* Hit the endpoint again to see the expanded return (Use "snippet-post" as the slug).
+* Create the model `blog-user.js`.
+
+```js
+
+var markdown = require('markdown').markdown;
+
+var Model = require('carolina/lib/models/model');
+var fields = require('carolina/lib/models/fields');
+
+class BlogUser extends Model {
+
+  static getMetadata() {
+    return {
+      indexField: 'username',
+      model: 'BlogUser'
+    }
+  }
+  static getSchema() {
+    return {
+      username: new fields.StringField({
+        name: 'Username'
+      }),
+      markdownBio: new fields.CodeField({
+        language: 'markdown',
+        name: "Markdown Bio"
+      })
+    }
+  }
+
+  constructor(obj) {
+    super("BlogPost", obj);
+  }
+
+  getBioHTML() {
+    return markdown.toHTML(this.markdownBio);
+  }
+}
+module.exports = BlogUser;
+```
+
+* Create the model `comment.js`:
+
+```js
+var markdown = require('markdown').markdown;
+
+var Model = require('carolina/lib/models/model');
+var fields = require('carolina/lib/models/fields');
+
+class Comment extends Model {
+
+  static getMetadata() {
+    return {
+      indexField: 'slug',
+      model: 'Comment'
+    };
+  }
+  static getSchema() {
+    return {
+      slug: new fields.StringField({
+        name: 'Slug'
+      }),
+      author: new fields.StringField({
+        default: 'admin',
+        name: "Comment Author"
+      }),
+      post: new fields.StringField({
+        name: "Post Slug"
+      }),
+      upvotes: new fields.IntegerField({
+        default: 0,
+        name: 'Upvotes'
+      }),
+      likingUsers: new fields.ListField({
+        name: "Liking Users"
+      }),
+      markdownText: new fields.CodeField({
+        language: 'markdown',
+        name: "Markdown Text"
+      })
+    };
+  }
+
+  constructor(obj) {
+    super("Comment", obj);
+    // calculate the slug if new
+    if (!obj.hasOwnProperty('slug'))
+      this.slug = `${this.author}_${this.post}_${new Date().getTime()}`;
+  }
+
+  getHTML() {
+    return markdown.toHTML(this.markdownText);
+  }
+}
+module.exports = Comment;
+```
+
+* Register the models in `app.js`.
+
+```js
+app.models = {
+  // include models here as in the below line
+  BlogUser: require('./models/blog-user'),
+  Comment: require('./models/comment'),
+  Post: require('./models/post')
+};
+```
+
+* Add comment and blog user fixtures to `posts.yml`:
+
+```yml
+  Comment:
+    - fields:
+        author: TwilightSparkle
+        post: snippet-post
+        markdownText: A *very* personal post. Thank you for sharing.
+  BlogUser:
+    - fields:
+        username: admin
+        markdownBio: Check out [my website](http://www.example.com).
+```
+
