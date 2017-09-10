@@ -357,6 +357,7 @@ app.models = {
     - fields:
         author: TwilightSparkle
         post: snippet-post
+        slug: TwilightSparkle_snippet-post_001
         markdownText: A *very* personal post. Thank you for sharing.
   BlogUser:
     - fields:
@@ -364,3 +365,4 @@ app.models = {
         markdownBio: Check out [my website](http://www.example.com).
 ```
 
+* View your new models in the admin panel.
