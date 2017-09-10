@@ -147,3 +147,30 @@ Hello! This is my **very first** blog post.
 ```
 
 * Run `carolina loaddata -d posts` and inspect the database.
+* `var markdown = require('markdown').markdown` in `post.js`
+* Add some instance methods to `post.js`:
+
+```js
+  getHTML() {
+    return markdown.toHTML(this.markdownText);
+  }
+  getSnippetHTML() {
+    var snippetMarkdown = this.markdownText.split('<!--more-->')[0];
+    return markdown.toHTML(snippetMarkdown);
+  }
+```
+
+* Delete `api/endpoint1.js` and `api/endpoint2.js`.
+* Write `api/get-post.js`.
+
+```js
+// put it here
+```
+
+* Change `api/get-post.js` to use the new endpoing for POST requests to /post.
+  * Remove the references to endpoint1 and endpoint2.
+
+```js
+// register API endpoints
+router.post('/get-post', require('./get-post'));
+```

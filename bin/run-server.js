@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var express = require('express');
 
 module.paths.unshift('./my-apps');
+module.paths.unshift('./node_modules');
 
 module.exports = function(args) {
 
@@ -18,7 +19,7 @@ module.exports = function(args) {
   var server = express();
 
   server.use(bodyParser.json());
-  server.use(require('carolina/apps/auth/lib/middleware/password-hash'));
+  server.use(require('../apps/auth/lib/middleware/password-hash'));
   
   for (var prop in config.apps) {
     if (config.apps.hasOwnProperty(prop)) {
