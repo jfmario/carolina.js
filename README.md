@@ -20,3 +20,4 @@ This is a web framework I am working on to learn. It will be documented later.
 * Implement: https://feathericons.com/
 * Puppeteer (headless chrome)
 * Implement: https://github.com/ai/nanoid (for secret generation)
+* https://github.com/fastify/fastify
