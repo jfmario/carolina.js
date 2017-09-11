@@ -214,7 +214,7 @@ export class BannerImageComponent implements OnInit {
     // the included template provides this data to us.
     var carolinaMetadata = $('#carolinaMetadata');
     var appName = carolinaMetadata.attr('appName');
-    var appData: any = JSON.parse(carolinaMetadata.attr('appData'));
+    var appData: any = JSON.parse(carolinaMetadata.attr('data'));
 
     this.image = '/static/' + appName + '/assets/images/banner.jpg';
     this.title = appData.title;
@@ -225,7 +225,221 @@ export class BannerImageComponent implements OnInit {
 
 * Create the file `banner-image.html`.
 
+```html
+<div class="card card-inverse">
+
+  <img class="card-img" [src]="image" width="100%" />
+
+  <div class="card-img-overlay">
+
+    <h4 class="card-title">{{ title }}</h4>
+
+    <p class="card-text">{{ subtitle }}</p>
+  </div>
+</div>
+```
+
 * Create `home.ts`.
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'blog-home',
+  templateUrl: './home.html',
+})
+export class HomeComponent {
+  constructor() {}
+}
+```
+
 * Create `home.html`.
+
+```html
+<blog-banner-image></blog-banner-image>
+```
+
 * Change `app.module.ts`.
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { BannerImageComponent } from './components/banner-image';
+import { HomeComponent } from './components/home';
+
+const appRoutes: Routes = [
+  { component: HomeComponent, path: '' }
+];
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    BannerImageComponent,
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes, { useHash: true })
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
 * Change `app.component.html`
+
+```html
+<router-outlet></router-outlet>
+```
+
+* From `ngCarolinaBlog`, run `ng build`.
+* Check the site out.
+* Create `ngCarolinaBlog/app/classes/post.ts`.
+
+```ts
+export class Post {
+  public author: string;
+  public categories: string[];
+  public creationDate: Date;
+  public htmlText: string;
+  public markdownText: string;
+  public modifiedDate: Date;
+  public publishDate: Date;
+  public slug: string;
+  public snippet: string;
+  public status: string;
+  public tags: string[];
+  public title: string;
+};
+```
+
+## Creating the Main Page #
+
+* Create `ngCarolinaBlog/app/components/post-snippet.ts` and html.
+
+```ts
+import { Component, Input } from '@angular/core';
+import { Post } from '../classes/post';
+
+@Component({
+  selector: 'blog-post-snippet',
+  templateUrl: './post-snippet.html',
+})
+export class PostSnippetComponent {
+
+  @Input()
+  private post: Post;
+
+  constructor() {}
+}
+```
+
+```html
+<div>
+
+  <p><small class="text-muted">
+    {{ post.publishDate | date:'longDate' }}
+  </small></p>
+
+  <h3>{{ post.title }}</h3>
+
+  <div [innerHTML]="post.snippet | safeHtml"></div>
+
+  <br />
+  <br />
+</div>
+```
+
+* Create `ngCarolinaBlog/app/services/api.ts`.
+
+```ts
+import { Injectable } from '@angular/core';
+
+import { Headers, Http } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
+
+@Injectable()
+export class ApiService {
+
+  private baseUrl = window.location.pathname.split('/')[1] + '/api';
+  private headers = new Headers({
+    'Content-Type': 'application/json'
+  });
+
+  constructor(private http: Http) {}
+
+  public async post(endpoint: string, data: any) {
+    try {
+      let res = await this.http.post(
+        this.baseUrl + endpoint,
+        JSON.stringify(data),
+        { headers: this.headers }
+      ).toPromise();
+      return res.json();
+    } catch(error) {
+      console.log(error);
+    }
+  }
+}
+```
+
+* Create `ngCarolinaBlog/app/pipes/safe-html.ts`.
+
+```ts
+import { Pipe, PipeTransform } from "@angular/core";
+import { DomSanitizer } from "@angular/platform-browser";
+
+@Pipe({name: 'safeHtml'})
+export class SafeHtmlPipe implements PipeTransform {
+  constructor(private sanitized: DomSanitizer) {}
+  transform(value: string) {
+    return this.sanitized.bypassSecurityTrustHtml(value);
+  }
+}
+```
+
+* Register the above with the module.
+* Import and register `HttpModule`.
+* Update `home.ts` and html.
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+
+import { Post } from '../classes/post';
+import { ApiService } from '../services/api';
+
+@Component({
+  selector: 'blog-home',
+  templateUrl: './home.html',
+})
+export class HomeComponent implements OnInit {
+
+  private posts: Post[] = [];
+
+  constructor(private apiService: ApiService) {}
+
+  async ngOnInit() {
+    this.posts = await this.apiService.post('/get-posts', { page: 1 });
+  }
+}
+```
+
+```html
+<blog-banner-image></blog-banner-image>
+
+<br />
+
+<h2 class="display">POSTS</h2>
+
+<div *ngFor="let post of posts">
+  <blog-post-snippet [post]="post"></blog-post-snippet>
+</div>
+```
+
+* View the site.
