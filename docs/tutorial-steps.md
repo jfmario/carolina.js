@@ -339,18 +339,64 @@ class Comment extends Model {
 module.exports = Comment;
 ```
 
+* Create the model `category.js`:
+
+```js
+var markdown = require('markdown').markdown;
+
+var Model = require('carolina/lib/models/model');
+var fields = require('carolina/lib/models/fields');
+
+class Category extends Model {
+
+  static getMetadata() {
+    return {
+      indexField: 'slug',
+      model: 'Category'
+    }
+  }
+  static getSchema() {
+    return {
+      slug: new fields.StringField({
+        name: 'Slug'
+      }),
+      categoryName: new fields.StringField({
+        name: 'Name'
+      }),
+      parentPath: new fields.ListField({
+        name: "Parent Path"
+      }),
+      markdownText: new fields.CodeField({
+        language: 'markdown',
+        name: "Markdown Text"
+      })
+    };
+  }
+
+  constructor(obj) {
+    super("Category", obj);
+  }
+
+  getHTML() {
+    return markdown.toHTML(this.markdownText);
+  }
+}
+module.exports = Category;
+```
+
 * Register the models in `app.js`.
 
 ```js
 app.models = {
   // include models here as in the below line
   BlogUser: require('./models/blog-user'),
+  Category: require('./models/category'),
   Comment: require('./models/comment'),
   Post: require('./models/post')
 };
 ```
 
-* Add comment and blog user fixtures to `posts.yml`:
+* Add fixtures to `posts.yml`:
 
 ```yml
   Comment:
@@ -363,6 +409,18 @@ app.models = {
     - fields:
         username: admin
         markdownBio: Check out [my website](http://www.example.com).
+  Category:
+    - fields:
+        slug: tests
+        name: Tests
+    - fields:
+        slug: blog-tests-md
+        name: Markdown Blog Tests
+        parentPath: ['tests']
+        markdownText: |
+          These posts test features of markdown.
 ```
 
+* Change the `snippet-post` category to "blog-tests-md".
+* load the data.
 * View your new models in the admin panel.

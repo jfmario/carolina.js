@@ -21,7 +21,11 @@ block content
     app-root
 block append js
 
-  div#carolinaMetadata(salt=site.secrets.clientSideSalt)
+  div#carolinaMetadata(
+    appName=locals.app.name
+    data=JSON.stringify(locals.app.data)
+    salt=site.secrets.clientSideSalt
+  )
   
   script(src='/static/common/js-sha512/sha512.min.js')
   // script(src='/static/common/codemirror/lib/codemirror.js')

@@ -67,6 +67,7 @@ function loadData (dataFile) {
             }
 
             var object = new Model(obj);
+            object.set('creationDate', new Date());
             object.save(function(){});
           }
         }
