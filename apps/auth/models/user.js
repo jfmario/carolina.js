@@ -58,7 +58,7 @@ class User extends Model {
         default: ['all'],
         edit: false
       }),
-      image: new fields.ImageField({
+      image: new fields.StringField({
         default: '',
         name: "Image URL"
       }),
