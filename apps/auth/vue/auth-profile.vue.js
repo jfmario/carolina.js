@@ -144,7 +144,7 @@ Vue.component('carolina-auth-profile', {
     updateImage: function() {
       var self = this;
       $.ajax({
-        url: window.location.pathname + '/api/confirm-email',
+        url: window.location.pathname + '/api/update-image',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
