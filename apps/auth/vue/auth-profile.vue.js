@@ -14,6 +14,7 @@ Vue.component('carolina-auth-profile', {
           self.username = data.username;
           self.emailAddress = data.emailAddress;
           self.emailVerified = data.emailVerified;
+          self.imageUrl = data.image;
           self.isReady = true;
         },
         error: function(jxhr) {
@@ -24,6 +25,7 @@ Vue.component('carolina-auth-profile', {
   data: function () {
     return {
       errorMessage: null,
+      imageUrl: '',
       inputEmail: '',
       isReady: false,
       username: '',
@@ -138,6 +140,25 @@ Vue.component('carolina-auth-profile', {
           self.errorMessage = jxhr.responseJSON.error;
         }
       });
+    },
+    updateImage: function() {
+      var self = this;
+      $.ajax({
+        url: window.location.pathname + '/api/confirm-email',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+          carolinaUser: CarolinaLocalDb.get('carolinaAuthenticationApp', 'carolinaUsername'),
+          carolinaToken: CarolinaLocalDb.get('carolinaAuthenticationApp', 'carolinaToken'),
+          image: self.imageUrl
+        }),
+        success: function(data) {
+          alert("Image set.");
+        },
+        error: function(jxhr) {
+          self.errorMessage = jxhr.responseJSON.error;
+        }
+      });
     }
   },
   template: `
@@ -148,6 +169,24 @@ Vue.component('carolina-auth-profile', {
 
         <div class="alert alert-danger" v-if="errorMessage">
           {{ errorMessage }}
+        </div>
+
+        <div v-if="imageUrl">
+          <img class="rounded" width="40%" v-bind:src="imageUrl" />
+        </div>
+
+        <h3>Update Image</h3>
+
+        <form class="form" @submit.prevent="updateImage">
+
+              <div class="form-group">
+                <label>Image</label>
+
+                <input class="form-control" type="text" v-model="imageUrl" />
+              </div>
+
+              <button class="btn btn-info" type="submit">Submit</button>
+            </form>
         </div>
         <div v-if="emailAddress">
           <p>

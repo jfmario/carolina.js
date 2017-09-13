@@ -14,5 +14,6 @@ router.post('/check', require('./lib/api/check'));
 router.post('/confirm-email', require('./lib/api/confirm-email'));
 router.post('/profile', require('./lib/api/profile'));
 router.post('/send-email-verification', require('./lib/api/send-email-verification'));
+router.post('/update-image', require('./lib/api/update-image'));
 // TODO: E-Mail Verification and Password Reset
 module.exports = router;
