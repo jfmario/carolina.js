@@ -102,7 +102,7 @@ const appRoutes: Routes = [
 
   <h3><a [routerLink]="['/post', post.slug]">{{ post.title }}</a></h3>
 
-  <div *ngIf="post.imageUrl.length > 0">
+  <div *ngIf="post.imageUrl">
 
     <img class="rounded" width="50%" [src]="post.imageUrl" />
 
@@ -111,7 +111,7 @@ const appRoutes: Routes = [
     </p>
   </div>
 
-  <div [innerHTML]="post.snippet | safeHtml"></div>
+  <div [innerHTML]="post.htmlText | safeHtml"></div>
 
   <a [routerLink]="['/post', post.slug]">Read more</a>
 
@@ -226,12 +226,143 @@ export class SidebarComponent{
 
 ## Comment Support #
 
-<!-- support user images in auth app -->
-<!-- provide api endpoint for get-comments (create BlogUser if it doesnt exist) -->
-<!-- display paginated comments below post -->
-<!-- edit post model with allow-comments -->
-<!-- edit blogUser model with can-comment -->
-<!-- provide api endpoint for submit-comment -->
-<!-- create authApiService for authenticated requests -->
+* Add user image bit to `get-comment.js`
+
+```js
+    for (var i = 0; i < comments.length; ++i) {
+      
+      var commentData = comments[i].exportData();
+      commentData.htmlText = comments[i].getHTML();
+      
+      var user = await User.lookup(commentData.author);
+
+      if (user)
+        commentData.userImage = user.image;
+      else
+        commentData.userImage = '';
+      postComments.push(commentData)
+    }
+
+    res.json(postComments);
+```
+
+
+* Create `comments` component.
+
+```ts
+import { Component, Input } from '@angular/core';
+import { Post } from '../classes/post';
+
+@Component({
+  selector: 'blog-comments',
+  templateUrl: './comments.html'
+})
+export class CommentsComponent {
+
+  @Input()
+  private post: Post;
+
+  @Input()
+  private comments: any[] = [];
+
+  constructor() {}
+}
+```
+
+```html
+<h5 class="display">{{ comments.length }} Replies to "{{ post.title }}"</h5>
+
+<div *ngFor="let comment of comments">
+
+  <img class="rounded float-left" width="10%" [src]="comment.userImage" />
+
+  <p><b>{{ comment.author }}</b></p>
+  <p class="small">{{ comment.creationDate | date: 'longDate' }}</p>
+
+  <div [innerHTML]="comment.htmlText | safeHtml"></div>
+</div>
+```
+
+* Rewrite `post-view.ts`
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+
+import { Post } from '../classes/post';
+import { ApiService } from '../services/api';
+
+@Component({
+  selector: 'blog-post-view',
+  templateUrl: './post-view.html',
+})
+export class PostViewComponent implements OnInit {
+
+  private comments: any[] = [];
+  private postSlug: string = null;
+  private post: Post;
+
+  constructor(
+    private apiService: ApiService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  async ngOnInit() {
+    this.postSlug = this.route.snapshot.paramMap.get('slug');
+    let response = await this.apiService.post('/get-post', {
+      slug: this.postSlug
+    });
+    this.post = response;
+    let commentsResponse = await this.apiService.post('/get-comments', {
+      post: this.postSlug
+    });
+    this.comments = commentsResponse;
+  }
+}
+```
+
+* Add `<blog-comments [post]="post" [comments]="comments"></blog-comments>` to `post-view.html` under the category hr.
+* Register the component.
+* Test, you should see comments
+* Add `allowComments` field to the Post model:
+
+```js
+      allowComments: new fields.BooleanField({
+        default: true,
+        name: "Allow Comments?"
+      }),
+```
+* Add `canComment` field to the BlogUser model:
+
+```js
+      canComment: new fields.BooleanField({
+        default: true,
+        name: "Can Comment?"
+      })
+```
+
+* Create endpoint `submit-comment`.
+
+* Include it after auth middleware.
+
+* Add members to ApiService
+* Add constructor to ApiService
+* Create `postAuth()`
+* Create `ngOnInit()`
+
 <!-- install Angular component for Codemirror -->
+
+* Install the Angular Component for code-mirror (at the level of ngCarolinaBlog)
+
+```bash
+npm install --save codemirror
+npm install --save ng2-codemirror
+```
+
+* Import CodemirrorModule in `app.module.ts`.
+
+* Create `submit-comment` component.
+* Import in `app.module.ts`.
+
 <!-- create comment submission form -->
