@@ -365,4 +365,4 @@ npm install --save ng2-codemirror
 * Create `submit-comment` component.
 * Import in `app.module.ts`.
 
-<!-- create comment submission form -->
+TODO: Paginate the comments
