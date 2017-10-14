@@ -52,7 +52,9 @@ carolina createadmin
 **Inspect Database**
 
 The previous command created the `db` folder. Go into it and take a look at
-`carolinaAuthenticationApp/User.db`. It is an NEDB file (which is the default
+`carolinaAuthenticationApp/User.db`. It is an
+[NEDB](https://www.npmjs.com/package/nedb)
+file (which is the default
 db configuration for starting out). Note that there is an entry for the admin
 user. You should avoid editing this file by hand.
 
@@ -64,27 +66,14 @@ to do so:
 
 `carolina loaddata`
 
+Inspect the database again and note the new entries.
 
-<!--here-->
+See: [Fixtures](FIXTURES.md).
 
-* `carolina startproject mysite`
-* `cd mysite`
-* `npm install`
-* Inspect created files
-* `carolina createadmin`
-* Inspect database
-* Inspect fixtures
-* `carolina loaddata`
-* Inspect database
+**Next Steps**
 
-See: [Fixtures](FIXTURES.md). <!--NEEDED-->
+[TUTORIAL](TUTORIAL.md)
 
-**Run the Server**
+NEXT: [Run the Server](tutorial/TUTORIAL001.md)
 
-Run the Express Server by running the following command:
-
-```
-carolina runserver
-```
-
-You can visit your app at `http://localhost:8000`.
+Or, see the [Topical Docs](TOPICS.md).
