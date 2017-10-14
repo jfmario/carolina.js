@@ -16,6 +16,9 @@
         <div *ngIf="fieldObj.data.type=='bool'">
           <input class="form-control" type="checkbox" [(ngModel)]="fieldObj.value" [disabled]="!fieldObj.data.attributes.adminEdit"/>
         </div>
+        <div *ngIf="fieldObj.data.type=='int'">
+          <input class="form-control" type="number" [(ngModel)]="fieldObj.value" [disabled]="!fieldObj.data.attributes.adminEdit"/>
+        </div>
         <div *ngIf="fieldObj.data.type=='date'">
           <input class="form-control" type="datetime-local" [ngModel]="fieldObj.value | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="fieldObj.value = $event" [disabled]="!fieldObj.data.attributes.adminEdit"  />
         </div>
@@ -51,4 +54,3 @@
 
 <button class="btn btn-primary" (click)="update()">Submit</button>
 <a class="btn btn-secondary" [routerLink]="['/view', appName, modelName, modelKey]">Cancel</a>
-
