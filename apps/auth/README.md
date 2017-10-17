@@ -72,7 +72,7 @@ messages if the user is not properly logged in.
 ### AdminGuard #
 
 ```js
-router.use(require('./lib/middleware/adminguard'));
+router.use(require('carolina/apps/auth/lib/middleware/adminguard'));
 router.post('/endpoint', endpointRequiringAdmin);
 ```
 
@@ -91,7 +91,7 @@ privileges.
 ### AuthGuard #
 
 ```js
-router.use(require('./lib/middleware/authguard'));
+router.use(require('carolina/apps/auth/lib/middleware/authguard'));
 router.post('/endpoint', endpointRequiringLogin);
 ```
 
