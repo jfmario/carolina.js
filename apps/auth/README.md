@@ -115,3 +115,11 @@ unless the user is currently logged in to an account.
   "error": "Bad or expired token."
 }
 ```
+
+## Interactions #
+
+When a user logs in to the site, the app will do a few things to help you
+keep track of the user.
+
+* Set 'carolinaAuthenticationApp-carolinaUser' to the user's name in `window.localStorage`
+* Set 'carolinaAuthenticationApp-carolinaToken' to the user's token in `window.localStorage`
