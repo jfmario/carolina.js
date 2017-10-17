@@ -1,6 +1,19 @@
 
 # Carolina Authentication #
 
+```yml
+apps:
+  carolinaAuthenticationApp:
+    app: carolina/apps/auth
+    mount: 'auth'
+    db: main
+    data:
+      emailVerificationSubject: E-Mail Verification
+      emailVerificationText: "Your confirmation code is:"
+      passwordResetSubject: Password Reset
+      passwordResetText: "Your new password is:"
+```
+
 The authentication app provides a way for users to register, login,
 change their passwords, set an image, and register their e-mail address.
 

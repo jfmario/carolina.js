@@ -1,6 +1,14 @@
 
 # Carolina Admin #
 
+```yml
+app:
+  carolinaAdminApp:
+    app: carolina/apps/admin
+    mount: 'admin'
+    db: main
+```
+
 The admin app provides the admin panel. It provides an admin interface
 to all models for all of your registered apps.
 
